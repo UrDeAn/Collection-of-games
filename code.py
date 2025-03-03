@@ -391,21 +391,21 @@ def menu_1(): #основная функция
                         numbr = numbr[0:-1]
                         input_menu_2 = tk.Label(text=numbr, font=("arial", 100, "bold"), bg=bbg, fg=tex)
                         if len(numbr) == 1:
-                            input_menu_2.place(x=463, y=520)
+                            input_menu_2.place(x=560, y=520)
                         elif len(numbr) == 2:
-                            input_menu_2.place(x=426, y=520)
+                            input_menu_2.place(x=525, y=520)
                         elif len(numbr) == 3:
-                            input_menu_2.place(x=389, y=520)
+                            input_menu_2.place(x=490, y=520)
                         elif len(numbr) == 4:
-                            input_menu_2.place(x=352, y=520)
+                            input_menu_2.place(x=455, y=520)
                         elif len(numbr) == 5:
-                            input_menu_2.place(x=315, y=520)
+                            input_menu_2.place(x=420, y=520)
                         elif len(numbr) == 6:
-                            input_menu_2.place(x=278, y=520)
+                            input_menu_2.place(x=385, y=520)
                         elif len(numbr) == 7:
-                            input_menu_2.place(x=241, y=520)
+                            input_menu_2.place(x=350, y=520)
                         elif len(numbr) == 8:
-                            input_menu_2.place(x=204, y=520)
+                            input_menu_2.place(x=315, y=520)
                         numb = numbr
                         print(count)
                     elif number != "del":
@@ -421,21 +421,21 @@ def menu_1(): #основная функция
                         else: numbr = str(number)
                         input_menu_2 = tk.Label(text=numbr, font=("arial", 100, "bold"), bg=bbg, fg=tex)
                         if len(numbr) == 1:
-                            input_menu_2.place(x=463, y=520)
+                            input_menu_2.place(x=560, y=520)
                         elif len(numbr) == 2:
-                            input_menu_2.place(x=426, y=520)
+                            input_menu_2.place(x=525, y=520)
                         elif len(numbr) == 3:
-                            input_menu_2.place(x=389, y=520)
+                            input_menu_2.place(x=490, y=520)
                         elif len(numbr) == 4:
-                            input_menu_2.place(x=352, y=520)
+                            input_menu_2.place(x=455, y=520)
                         elif len(numbr) == 5:
-                            input_menu_2.place(x=315, y=520)
+                            input_menu_2.place(x=420, y=520)
                         elif len(numbr) == 6:
-                            input_menu_2.place(x=278, y=520)
+                            input_menu_2.place(x=385, y=520)
                         elif len(numbr) == 7:
-                            input_menu_2.place(x=241, y=520)
+                            input_menu_2.place(x=350, y=520)
                         elif len(numbr) == 8:
-                            input_menu_2.place(x=204, y=520)
+                            input_menu_2.place(x=315, y=520)
                         numb = numbr
                         count += 1
                         print(count)
