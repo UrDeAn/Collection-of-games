@@ -39,6 +39,7 @@ scissors_image = ImageTk.PhotoImage(file =r"pictures\ножницы.png")
 paper_image = ImageTk.PhotoImage(file =r"pictures\бумага.png")
 az = ImageTk.PhotoImage(file =r"pictures\az.png")
 inp = ImageTk.PhotoImage(file=r"pictures\inpt.png")
+del_png = ImageTk.PhotoImage(file=r"pictures\удалить.png")
 
 #музыка с помощью pygame
 mixer.init()
@@ -372,10 +373,11 @@ def menu_1(): #основная функция
             def play_2(max_num):
                 sound1.play()
                 guess_num = random.randint(1, max_num)
-                global one,count,numbr
+                global one,count,numbr,numb,max_numb,min_numb
                 one = True
                 count = 0
                 numbr = " "
+                numb = 0
                 diff_menu.destroy()
                 def back_gn():
                     sound1.play()
@@ -391,21 +393,21 @@ def menu_1(): #основная функция
                         numbr = numbr[0:-1]
                         input_menu_2 = tk.Label(text=numbr, font=("arial", 100, "bold"), bg=bbg, fg=tex)
                         if len(numbr) == 1:
-                            input_menu_2.place(x=560, y=520)
+                            input_menu_2.place(x=565, y=520)
                         elif len(numbr) == 2:
-                            input_menu_2.place(x=525, y=520)
+                            input_menu_2.place(x=515, y=520)
                         elif len(numbr) == 3:
-                            input_menu_2.place(x=490, y=520)
+                            input_menu_2.place(x=480, y=520)
                         elif len(numbr) == 4:
-                            input_menu_2.place(x=455, y=520)
+                            input_menu_2.place(x=445, y=520)
                         elif len(numbr) == 5:
-                            input_menu_2.place(x=420, y=520)
+                            input_menu_2.place(x=410, y=520)
                         elif len(numbr) == 6:
-                            input_menu_2.place(x=385, y=520)
+                            input_menu_2.place(x=375, y=520)
                         elif len(numbr) == 7:
-                            input_menu_2.place(x=350, y=520)
+                            input_menu_2.place(x=340, y=520)
                         elif len(numbr) == 8:
-                            input_menu_2.place(x=315, y=520)
+                            input_menu_2.place(x=305, y=520)
                         numb = numbr
                         print(count)
                     elif number != "del":
@@ -423,22 +425,34 @@ def menu_1(): #основная функция
                         if len(numbr) == 1:
                             input_menu_2.place(x=560, y=520)
                         elif len(numbr) == 2:
-                            input_menu_2.place(x=525, y=520)
+                            input_menu_2.place(x=523, y=520)
                         elif len(numbr) == 3:
-                            input_menu_2.place(x=490, y=520)
+                            input_menu_2.place(x=486, y=520)
                         elif len(numbr) == 4:
-                            input_menu_2.place(x=455, y=520)
+                            input_menu_2.place(x=449, y=520)
                         elif len(numbr) == 5:
-                            input_menu_2.place(x=420, y=520)
+                            input_menu_2.place(x=412, y=520)
                         elif len(numbr) == 6:
-                            input_menu_2.place(x=385, y=520)
+                            input_menu_2.place(x=375, y=520)
                         elif len(numbr) == 7:
-                            input_menu_2.place(x=350, y=520)
+                            input_menu_2.place(x=338, y=520)
                         elif len(numbr) == 8:
-                            input_menu_2.place(x=315, y=520)
+                            input_menu_2.place(x=301, y=520)
                         numb = numbr
                         count += 1
                         print(count)
+
+                def print_numb():
+                    global max_number,min_number
+                    max_number = max_num
+                    min_number = 0
+                    if int(numb) > guess_num:
+                        max_number = numb
+                        
+                        if len(numb) == 1:
+                            pass
+                    if int(numb) < max_number:
+                        min_number = numb
 
                 back_gn_btn = tk.Button(gn,image=imag,bg=bagr,command = back_gn,activebackground=bagr,
                                             relief="flat",width=60,height=50).place(x=20,y=20)
@@ -449,10 +463,20 @@ def menu_1(): #основная функция
                     globals()["numbr" + str(i)].place(x=20+i*117,y=730)
                 input_menu = tk.Label(gn,bg=bbg, fg=tex,pady=70,padx=350)
                 input_menu.place(x=248,y=520)
-                inp_btn = tk.Button(gn,bg=bagr,activebackground=bagr,relief="flat",image = inp,height=160).place(x=50,y=510)
-                del_alf = tk.Button(gn,text = "FF",command=lambda number = "del":inpt(number)).place(x=200,y=200)
+                max_num_lbl = tk.Label(gn,bg = bbg,pady=60,padx=130).place(x=20,y=200)
+                min_num_lbl = tk.Label(gn, bg=bbg, pady=60, padx=130).place(x=915, y=200)
+                number_lbl = tk.Label(gn, bg=bbg, pady=60, padx=130).place(x=467, y=200)
+                max_num_lbl_1 = tk.Label(gn, bg=bbg).place(x=20, y=200)
+                min_num_lbl_1 = tk.Label(gn, bg=bbg).place(x=915, y=200)
+                number_lbl_1 = tk.Label(gn, bg=bbg).place(x=467, y=200)
+                bigger_lbl = tk.Label(gn, bg=bagr,text = "<",fg=tex,font=("arial", 170, "bold")).place(x=307,y=135)
+                lower_lbl = tk.Label(gn, bg=bagr,text = ">",fg=tex,font=("arial", 170, "bold")).place(x=757,y=135)
+                inp_btn = tk.Button(gn,bg=bagr,activebackground=bagr,relief="flat",image = inp,height=160,
+                                    command = print_numb).place(x=50,y=510)
+                del_alf = tk.Button(gn,text = "FF",image = del_png,bg =bagr,activebackground=bagr,
+                                    relief = "flat",command=lambda number = "del":inpt(number)).place(x=970,y=535)
                 error_lbl = (tk.Label(gn,bg=bagr,font=("arial", 25, "bold"),fg=red,))
-                error_lbl.place(x=262,y=476)
+                error_lbl.place(x=351,y=476)
                 gn.pack()
 
 
