@@ -13,7 +13,9 @@ green = "#00693E"
 
 #настройка основного окна
 window = tk.Tk()
-window.geometry("1200x900+350+50")
+x = window.winfo_screenwidth()
+y = window.winfo_screenheight()
+window.geometry('{}x{}+{}+{}'.format(int(x*0.625), int(y*0.834), int(x*0.18349), int(y*0.0462962)))
 window.title("Сборник игр")
 window.minsize(1200, 900)
 window.iconbitmap(r'pictures\gamepad.ico')
