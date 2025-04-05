@@ -2,6 +2,7 @@ import tkinter as tk
 from pygame import mixer
 from PIL import ImageTk
 import random
+import pyinstaller
 
 #цвета
 abg = "#396c7c"
