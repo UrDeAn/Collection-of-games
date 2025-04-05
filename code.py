@@ -56,7 +56,7 @@ prav = ImageTk.PhotoImage(file=r"pictures\право.png")
 mixer.init()
 mixer.music.load(r'music\Музыка.mp3')
 mixer.music.play(-1)
-mixer.music.set_volume(0.0)
+mixer.music.set_volume(0.1)
 
 sound1 = mixer.Sound(r"music\нажатие кнопки.wav")
 sound1.set_volume(1)
@@ -1096,7 +1096,7 @@ def menu_1(): #основная функция
                 game_vis = tk.Frame(window, bg=bagr, height=900, width=1200)
                 def back_vic2():
                     game_vis.destroy()
-                    vis2()
+                    multy_menu()
                 back_vic2_button_1 = tk.Button(game_vis, image=imag, command=back_vic2, relief="flat",
                                                   activebackground=bagr,width=60,height=50, bg=bagr,
                                                   ).place(x=20, y=20)
@@ -1326,61 +1326,128 @@ def menu_1(): #основная функция
             vopry = []
             otvy = []
             def vopr():
-                global count,vopry,otvy,f,ff,bac
-                f = False
-                ff = False
+                global count,vopry,otvy,g56,g78,bac
+                g56 = False
+                g78 = False
                 def sohr():
-                    global f,ff,er,err,bac
+                    global g56,g78,er,err,bac
                     if len(rel_vopr.get("1.0", "end").replace('\n', '')) != 0 and len(rel_otv.get("0.0", "end").replace('\n', '')) != 0:
                         if len(vopry) != count-1:
                             del vopry[count-1]
                         if len(otvy) != count-1:
                             del otvy[count-1]
-                        vopry.append(rel_vopr.get("1.0", "end").replace('\n', ''))
-                        otvy.append(rel_otv.get("1.0", "end").replace('\n', ''))
-                        if f:
-                            er.destroy()
-                        if ff:
-                            err.destroy()
-                    if len(rel_vopr.get("1.0", "end").replace('\n', '')) == 0:
-                        er = tk.Label(vk,text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО",bg = bagr,fg=red,font=("Arial",15,"bold"))
-                        er.place(x=420,y=276)
-                        f = True
-                    if len(rel_otv.get("1.0", "end").replace('\n', '')) == 0:
-                        err = tk.Label(vk,text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО",bg = bagr,fg=red,font=("Arial",15,"bold"))
-                        err.place(x=420,y=525)
-                        ff = True
+                        vopry.append(str(rel_vopr.get("1.0", "end").replace('\n', '')))
+                        otvy.append(str(rel_otv.get("1.0", "end").replace('\n', '')))
                     print(vopry,otvy)
                 multy.destroy()
                 def cou(с=None):
-                    slo.configure(text=f"{len(rel_vopr.get("1.0", "end").replace('\n', ''))}/475")
+                    current_text = rel_vopr.get("1.0", "end").replace('\n', '')
+                    if len(current_text) > 470:
+                        rel_vopr.delete("1.0", "end")
+                        rel_vopr.insert("1.0", current_text[:470])
+                    slo.configure(text=f"{len(rel_vopr.get('1.0', 'end').replace('\n', ''))}/470")
+                    if g56:
+                        er.destroy()
                 def k(с=None):
-                    df.configure(text=f"{len(rel_otv.get("1.0", "end").replace('\n', ''))}/80")
+                    current_text = rel_otv.get("1.0", "end").replace('\n', '')
+                    if len(current_text) > 75:
+                        rel_otv.delete("1.0", "end")  # Удаляем текст, если превышен лимит
+                        rel_otv.insert("1.0", current_text[:75])  # Вставляем только первые 75 символов
+                    df.configure(text=f"{len(rel_otv.get('1.0', 'end').replace('\n', ''))}/75")
+                    if g78:
+                        err.destroy()
                 vk = tk.Frame(window, bg=bagr, height=900, width=1200)
                 vpr = tk.Label(vk,text=f"ВОПРОС №{count}:",bg=bagr,font=("Arial",40,"bold")).place(x=422,y=10)
                 otv = tk.Label(vk,text=f"ОТВЕТ №{count}:",bg=bagr,font=("Arial",40,"bold")).place(x=449,y=400)
                 rel_vopr = tk.Text(vk,bg=bbg,font=("Arial",20,"bold"),height=6,width=79,wrap="word")
                 rel_vopr.place(x=5,y=80)
                 rel_vopr.bind("<KeyRelease>", cou)
-                slo = tk.Label(vk,text=f"0/475",bg=bagr,font=("Arial",15,"bold"))
+                slo = tk.Label(vk,text=f"0/470",bg=bagr,font=("Arial",15,"bold"))
                 slo.place(x=1130,y=280)
                 rel_otv = tk.Text(vk,bg=bbg,font=("Arial",20,"bold"),width=79,height=1,wrap="word",pady=10)
                 rel_otv.place(x=5,y=470)
                 rel_otv.bind("<KeyRelease>", k)
+                df = tk.Label(vk,text=f"0/75",bg=bagr,font=("Arial",15,"bold"))
+                df.place(x=1130,y=530)
                 if bac:
                     rel_vopr.insert("1.0", vopry[count - 1])
                     rel_otv.insert("1.0", otvy[count - 1])
-                df = tk.Label(vk,text=f"0/80",bg=bagr,font=("Arial",15,"bold"))
-                df.place(x=1130,y=530)
+                    cou()
+                    k()
                 def ba():
                     vk.destroy()
                     multy_menu()
                 f = tk.Button(vk, image=imag, bg=bagr, command=ba, activebackground=bagr,
                               relief="flat", width=60, height=50, ).place(x=20,y=20)
                 def play_g():
-                    pass
+                    def ntes():
+                        global fq,g1,gg1
+                        fq.destroy()
+                        g1.destroy()
+                        gg1.destroy()
+                    def tes():
+                        def rd(text, max_length):
+                            words = text.split()
+                            wrapped_lines = []
+                            current_line = []
+                            for word in words:
+                                if sum(len(w) for w in current_line) + len(current_line) + len(word) <= max_length:
+                                    current_line.append(word)
+                                else:
+                                    if current_line:
+                                        wrapped_lines.append(' '.join(current_line))
+                                    current_line = [word]
+                            if current_line:
+                                wrapped_lines.append(' '.join(current_line))
+                            return '\n'.join(wrapped_lines)
+                        global coun,vopry,otvy
+                        ntes()
+                        sohr()
+                        vk.destroy()
+                        coun = 1
+                        ot = tk.Frame(window, bg=bagr, height=900, width=1200)
+                        vpr = tk.Label(ot, text=f"ВОПРОС №{coun}:", bg=bagr, font=("Arial", 40, "bold")).place(x=422, y=10)
+                        otvet = tk.Label(ot, text=f"ОТВЕТ №{coun}:", bg=bagr, font=("Arial", 40, "bold")).place(x=449, y=400)
+                        rel_vop = tk.Label(ot,bg=bbg,text=f"{rd(vopry[coun-1],75)}",font=("Arial", 20, "bold")).place(x=22,y=100)
+                        bb = tk.Button(ot, bg=bagr, image=lev, activebackground=bagr, command="", relief="flat")
+                        fb = tk.Button(ot, bg=bagr, image=prav, activebackground=bagr, command="", relief="flat")
+                        bb.place(x=10, y=700)
+                        fb.place(x=1000, y=710)
+                        if coun == 1:
+                            bb.configure(state = "disabled")
+                        if coun == 99:
+                            fb.configure(state = "disabled")
+
+
+                        ot.pack()
+                    def warn():
+                        global fq,g1,gg1
+                        global g56, g78, er, err, bac
+                        if int(len(rel_vopr.get("0.0", "end").replace('\n', ''))) == 0:
+                            er = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
+                                          font=("Arial", 15, "bold"))
+                            er.place(x=420, y=276)
+                            g56 = True
+                        if int(len(rel_otv.get("1.0", "end").replace('\n', ''))) == 0:
+                            err = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
+                                           font=("Arial", 15, "bold"))
+                            err.place(x=420, y=525)
+                            g78 = True
+                        if int(len(rel_vopr.get("0.0", "end").replace('\n', ''))) == 0 or int(
+                                len(rel_otv.get("1.0", "end").replace('\n', ''))) == 0:
+                            return
+                        fq = tk.Label(vk, bg=bbg, text="НАЧАТЬ ТЕСТ?", font=("Arial", 45, "bold"))
+                        fq.place(x=370,y=550)
+                        g1 = tk.Button(vk, bg=green, text="ДА", activebackground=green, relief="flat", command=tes,
+                                          font=("Arial", 25, "bold"),padx=11)
+                        g1.place(x=725, y=640)
+                        gg1 = tk.Button(vk, bg=red, text="НЕТ", activebackground=red, relief="flat", command=ntes,
+                                          font=("Arial", 25, "bold"))
+                        gg1.place(x=382, y=640)
+                    warn()
                 pla = tk.Button(vk,bg=bbg,text="ИГРАТЬ",relief="flat",font=("Arial",40,"bold"),activebackground=abg,command = play_g)
                 pla.place(x=471, y=780)
+
                 def b():
                     sohr()
                     global count,bac
@@ -1389,12 +1456,27 @@ def menu_1(): #основная функция
                     bac = True
                     vopr()
                 def fo():
-                    sohr()
-                    global count,bac
-                    bac = False
-                    count += 1
-                    vk.destroy()
-                    vopr()
+                    global g56,g78,er,err,bac
+                    if int(len(rel_vopr.get("0.0", "end").replace('\n', ''))) == 0:
+                        er = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
+                                          font=("Arial", 15, "bold"))
+                        er.place(x=420, y=276)
+                        g56 = True
+                    if int(len(rel_otv.get("1.0", "end").replace('\n', ''))) == 0:
+                        err = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
+                                           font=("Arial", 15, "bold"))
+                        err.place(x=420, y=525)
+                        g78 = True
+                    if int(len(rel_vopr.get("0.0", "end").replace('\n', ''))) == 0 or int(len(rel_otv.get("1.0", "end").replace('\n', ''))) == 0:
+                        return
+                    if int(len(rel_vopr.get("0.0", "end").replace('\n', ''))) != 0 and int(
+                                len(rel_otv.get("1.0", "end").replace('\n', ''))) != 0:
+                        sohr()
+                        global count,bac
+                        bac = False
+                        count += 1
+                        vk.destroy()
+                        vopr()
                 b_b = tk.Button(vk,bg=bagr,image=lev,activebackground=bagr, command=b,relief = "flat")
                 f_b = tk.Button(vk,bg=bagr,image=prav,activebackground=bagr, command=fo, relief = "flat")
                 b_b.place(x=10,y=700)
