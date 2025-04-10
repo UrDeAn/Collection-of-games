@@ -2,7 +2,6 @@ import tkinter as tk
 from pygame import mixer
 from PIL import ImageTk
 import random
-import pyinstaller
 
 #цвета
 abg = "#396c7c"
@@ -57,26 +56,24 @@ prav = ImageTk.PhotoImage(file=r"pictures\право.png")
 mixer.init()
 mixer.music.load(r'music\Музыка.mp3')
 mixer.music.play(-1)
-mixer.music.set_volume(0.1)
+mixer.music.set_volume(0.08)
 
-sound1 = mixer.Sound(r"music\нажатие кнопки.wav")
-sound1.set_volume(1)
+sound_win = mixer.Sound(r"music\win.mp3")
+sound_win.set_volume(0.24)
+sound_keyboard = mixer.Sound(r"music\нажатие кнопки.wav")
+sound_keyboard.set_volume(1)
 
-
+volume = True
 def menu_1(): #основная функция
     def exit(): #функция выхода из игры
-        sound1.play()
         window.destroy()
 
     def solo(): #функция выбора одиночной игры
-        sound1.play()
         def back(): #функция возврата в меню
-            sound1.play()
             solo_menu.destroy()
             menu_1()
 
         def visilica(): # игра виселица
-            sound1.play()
             words = ["аллея", "маска", "автор", "агент", "актер", "акула", "спорт", "алмаз", "ангар", "ангел", "анонс",
                      "бидон", "бетон", "берег", "белок", "белка", "бекон", "бедро", "бегун", "башня", "батон", "батут",
                      "басня", "барин", "баржа", "баран", "барак", "банка", "банан", "балка", "балет", "багет", "багаж",
@@ -100,13 +97,12 @@ def menu_1(): #основная функция
                      "седина", "сговор", "сделка", "уговор", "футбол", "шантаж", "штанга", "штатив", "штекер", "штопор",
                      "анкета", "береза", "вектор", "паштет", "письмо", "поддон", "подвох", "подвиг", "подвал",
                      "подача"]
-            def set_diff_visilica(): # выбор сложности
+            def set_diff_visilica():# выбор сложности
                 def back_1():
                     diff_menu.destroy()
                     solo()
 
                 def diff(difficul):
-                    sound1.play()
                     global game_vis
                     game_vis = tk.Frame(window, width=1200, height=900)
                     game_vis["bg"] = bagr
@@ -160,11 +156,10 @@ def menu_1(): #основная функция
                     attempts.place(x=372, y=10)
 
                     def check(letter):
-                        sound1.play()
+                        sound_keyboard.play()
                         global count
                         def end():
                             def again():
-                                sound1.play()
                                 game_vis.destroy()
                                 visilica()
                             again_button_2 = tk.Button(game_vis, text="ЗАНОВО", command=again, relief="flat",
@@ -210,6 +205,7 @@ def menu_1(): #основная функция
 
                         if set(correct) == set(word):
                             attempts.configure(text=f"Вы отгадали слово {word}!",)
+                            sound_win.play()
                             if len(word) == 5:
                                 attempts.place(x=310, y=10)
                             if len(word) == 6:
@@ -256,14 +252,13 @@ def menu_1(): #основная функция
             set_diff_visilica()
 
         def RockPaperScissors():
-            sound1.play() # игра камень, ножницы, бумага
             global count_rps, wins, loses, draws
             solo_menu.destroy()
             def back_RPS():
                 rps.destroy()
                 solo()
             def play_2(player_move):
-                sound1.play()
+                sound_keyboard.play()
                 global count_rps, wins, loses, draws
                 count_rps += 1
                 count_rps_lbl.configure(text=f"СЫГРАНО: {count_rps}")
@@ -281,6 +276,7 @@ def menu_1(): #основная функция
                 elif player_move == 3:
                     your_move.configure(image=paper_image,bg=bbg)
                 if bot_move == 1 and player_move == 3 or bot_move == 2 and player_move == 1 or bot_move == 3 and player_move == 2:
+                    sound_win.play()
                     wins += 1
                     lose_or_win.configure(fg="#00693E",text="ПОБЕДА")
                     lose_or_win.place(x=405, y=12)
@@ -348,12 +344,10 @@ def menu_1(): #основная функция
                 gn.destroy()
                 guess_number()
             def back_1():
-                sound1.play()
                 diff_menu.destroy()
                 solo()
 
             def diff(difficul):
-                sound1.play()
                 global gn,max_num
                 gn = tk.Frame(window, width=1200, height=900)
                 gn["bg"] = bagr
@@ -403,6 +397,7 @@ def menu_1(): #основная функция
                     global one,numb,input_menu_2,numbr,count
                     if number == " ":
                         return
+                    sound_keyboard.play()
                     if number == "del" and count != 0:
                         input_menu_2.destroy()
                         error_lbl.configure(text="")
@@ -642,6 +637,7 @@ def menu_1(): #основная функция
 
 
                     if int(numbr) == guess_num:
+                        sound_win.play()
                         win_lbl = tk.Label(gn,text="ПОБЕДА",fg=green,bg=bagr,font=("arial", 100, "bold")).place(x=300,y=15)
                         number_lbl.configure(text = guess_num)
                         number_lbl.place(x=378,y=200)
@@ -765,6 +761,7 @@ def menu_1(): #основная функция
                     combo = ""
                     cnt = 0
                     def check_mem(x):
+                        sound_keyboard.play()
                         global combo, cnt, truecombo, ccc, a
                         combo = combo + str(x)
                         if combo[cnt] != truecombo[cnt]:
@@ -785,6 +782,18 @@ def menu_1(): #основная функция
                         else:
                             cnt += 1
                             if combo == truecombo:
+
+
+
+
+
+                                # КОРОТКИЙ
+                                # ЗВУК
+                                # ПОБЕДЫ
+
+
+
+
                                 truecombo += str(random.randint(1, 9))
                                 play_3(False)
                     def back_play_3():
@@ -911,6 +920,7 @@ def menu_1(): #основная функция
                                     globals()[f"btn{zx[count]}"].configure(bg=red)
                             count += 1
                         if set(zxc).issubset(tr):
+                            sound_win.play()
                             dd.configure(text="ПОБЕДА",fg=green)
                             dd.place(x=400,y=10)
                         else:
@@ -948,12 +958,14 @@ def menu_1(): #основная функция
                         lbl.place(x=10,y=15)
                 update_label()
                 def get_green(x,y):
+                    sound_keyboard.play()
                     global gs
                     gs.append(zxc[x*5+y])
                     globals()[f"btn{x}{y}"].configure(bg=green,command=lambda x=x,y=y: get_red(x,y))
                     if x == 2 and y==2:
                         globals()[f"btn{x}{y}"].configure(bg=bbg)
                 def get_red(x,y):
+                    sound_keyboard.play()
                     global gs
                     gs.remove(zxc[x*5+y])
                     globals()[f"btn{x}{y}"].configure(bg=bbg, command=lambda x=x, y=y: get_green(x, y))
@@ -1038,13 +1050,9 @@ def menu_1(): #основная функция
 
 
     def multy_menu(): #функция выбора совместной игры
-        sound1.play()
-
         def back(): #фунця возврата в меню
-            sound1.play()
             multy.destroy()
             menu_1()
-
         def vis2():
             global word,w,fi,te,coun,gh,er,fgh,vi,count,fd
             coun = 0
@@ -1109,11 +1117,10 @@ def menu_1(): #основная функция
                 attempts.place(x=372, y=10)
                 df()
                 def check(letter):
-                    sound1.play()
+                    sound_keyboard.play()
                     global count
                     def end():
                         def again():
-                            sound1.play()
                             game_vis.destroy()
                             vis2()
                         again_button_2 = tk.Button(game_vis, text="ЗАНОВО", command=again, relief="flat",
@@ -1138,6 +1145,7 @@ def menu_1(): #основная функция
                         attempts.configure(text=f"Осталось попыток: {count}!")
                         df()
                     if set(correct) == set(word):
+                        sound_win.play()
                         attempts.configure(text=f"Вы отгадали слово {word}!",)
                         if len(word) == 3:
                             attempts.place(x=330, y=10)
@@ -1221,6 +1229,7 @@ def menu_1(): #основная функция
                 for i in "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЬЫЪЭЮЧШЩЯ":
                     globals()[i].configure(state="disabled")
             def wrd(x):
+                sound_keyboard.play()
                 global word,fi,te,coun,gh,er,fgh,dd,fd
                 if fi and x != "del":
                     fi = False
@@ -1352,19 +1361,19 @@ def menu_1(): #основная функция
                 def k(с=None):
                     current_text = rel_otv.get("1.0", "end").replace('\n', '')
                     if len(current_text) > 75:
-                        rel_otv.delete("1.0", "end")  # Удаляем текст, если превышен лимит
-                        rel_otv.insert("1.0", current_text[:75])  # Вставляем только первые 75 символов
+                        rel_otv.delete("1.0", "end")
+                        rel_otv.insert("1.0", current_text[:75])
                     df.configure(text=f"{len(rel_otv.get('1.0', 'end').replace('\n', ''))}/75")
                     if g78:
                         err.destroy()
                 vk = tk.Frame(window, bg=bagr, height=900, width=1200)
-                vpr = tk.Label(vk,text=f"ВОПРОС №{count}:",bg=bagr,font=("Arial",40,"bold")).place(x=422,y=10)
+                vpr = tk.Label(vk,text=f"ВОПРОС №{count}:",bg=bagr,font=("Arial",40,"bold")).place(x=422,y=15)
                 otv = tk.Label(vk,text=f"ОТВЕТ №{count}:",bg=bagr,font=("Arial",40,"bold")).place(x=449,y=400)
                 rel_vopr = tk.Text(vk,bg=bbg,font=("Arial",20,"bold"),height=6,width=79,wrap="word")
-                rel_vopr.place(x=5,y=80)
+                rel_vopr.place(x=5,y=90)
                 rel_vopr.bind("<KeyRelease>", cou)
                 slo = tk.Label(vk,text=f"0/470",bg=bagr,font=("Arial",15,"bold"))
-                slo.place(x=1130,y=280)
+                slo.place(x=1130,y=290)
                 rel_otv = tk.Text(vk,bg=bbg,font=("Arial",20,"bold"),width=79,height=1,wrap="word",pady=10)
                 rel_otv.place(x=5,y=470)
                 rel_otv.bind("<KeyRelease>", k)
@@ -1387,39 +1396,47 @@ def menu_1(): #основная функция
                         g1.destroy()
                         gg1.destroy()
                     def tes():
-                        def rd(text, max_length):
-                            words = text.split()
-                            wrapped_lines = []
-                            current_line = []
-                            for word in words:
-                                if sum(len(w) for w in current_line) + len(current_line) + len(word) <= max_length:
-                                    current_line.append(word)
-                                else:
-                                    if current_line:
-                                        wrapped_lines.append(' '.join(current_line))
-                                    current_line = [word]
-                            if current_line:
-                                wrapped_lines.append(' '.join(current_line))
-                            return '\n'.join(wrapped_lines)
+                        global dff
+                        def kg(с=None):
+                            global dff
+                            current_text = rel_ot.get().replace('\n', '')
+                            if len(current_text) > 70:
+                                rel_ot.delete(0,"end")
+                                rel_ot.insert(0, current_text[:70])
+                            dff.configure(text=f"{len(rel_ot.get().replace('\n', ''))}/70")
+                        def baff():
+                            ot.destroy()
+                            multy_menu()
                         global coun,vopry,otvy
                         ntes()
                         sohr()
                         vk.destroy()
                         coun = 1
                         ot = tk.Frame(window, bg=bagr, height=900, width=1200)
-                        vpr = tk.Label(ot, text=f"ВОПРОС №{coun}:", bg=bagr, font=("Arial", 40, "bold")).place(x=422, y=10)
-                        otvet = tk.Label(ot, text=f"ОТВЕТ №{coun}:", bg=bagr, font=("Arial", 40, "bold")).place(x=449, y=400)
-                        rel_vop = tk.Label(ot,bg=bbg,text=f"{rd(vopry[coun-1],75)}",font=("Arial", 20, "bold")).place(x=22,y=100)
+                        f = tk.Button(ot, image=imag, bg=bagr, command=baff, activebackground=bagr,
+                                      relief="flat", width=60, height=50, ).place(x=20, y=20)
+                        vpr = tk.Label(ot, text=f"ВОПРОС №{coun}:", bg=bagr, font=("Arial", 40, "bold")).place(x=422, y=15)
+                        rel_vop = tk.Text(ot,relief="flat",bg=bbg,font=("Arial",20,"bold"),height=6,width=79,wrap="word",cursor="arrow")
+                        rel_vop.place(x=5,y=90)
+                        rel_vop.insert("1.0", vopry[count - 1])
+                        rel_vop.tag_add('title', 1.0, '1.end')
+                        rel_vop.tag_config('title', justify="center",)
+                        rel_vop.configure(state="disabled")
+                        otvet = tk.Label(ot, text=f"ОТВЕТ №{coun}:", bg=bagr, font=("Arial", 40, "bold")).place(x=449, y=350)
                         bb = tk.Button(ot, bg=bagr, image=lev, activebackground=bagr, command="", relief="flat")
                         fb = tk.Button(ot, bg=bagr, image=prav, activebackground=bagr, command="", relief="flat")
-                        bb.place(x=10, y=700)
-                        fb.place(x=1000, y=710)
+                        bb.place(x=10, y=650)
+                        fb.place(x=1000, y=650)
+                        rel_ot = tk.Entry(ot,width=79,bg=bbg, font=("Arial",20,"bold"),justify="center")
+                        rel_ot.place(x=5, y=420)
+                        rel_ot.bind("<KeyRelease>", kg)
+                        dff = tk.Label(ot, text=f"0/70", bg=bagr, font=("Arial", 15, "bold"))
+                        dff.place(x=1130, y=460)
+                        fin = tk.Button(ot, bg=bbg, text="ПРОВЕРИТЬ", activebackground=abg, command="", relief="flat",font=("Arial",40,"bold")).place(x=420,y=650)
                         if coun == 1:
                             bb.configure(state = "disabled")
                         if coun == 99:
                             fb.configure(state = "disabled")
-
-
                         ot.pack()
                     def warn():
                         global fq,g1,gg1
@@ -1427,7 +1444,7 @@ def menu_1(): #основная функция
                         if int(len(rel_vopr.get("0.0", "end").replace('\n', ''))) == 0:
                             er = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
                                           font=("Arial", 15, "bold"))
-                            er.place(x=420, y=276)
+                            er.place(x=420, y=286)
                             g56 = True
                         if int(len(rel_otv.get("1.0", "end").replace('\n', ''))) == 0:
                             err = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
@@ -1461,7 +1478,7 @@ def menu_1(): #основная функция
                     if int(len(rel_vopr.get("0.0", "end").replace('\n', ''))) == 0:
                         er = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
                                           font=("Arial", 15, "bold"))
-                        er.place(x=420, y=276)
+                        er.place(x=420, y=286)
                         g56 = True
                     if int(len(rel_otv.get("1.0", "end").replace('\n', ''))) == 0:
                         err = tk.Label(vk, text="ПОЛЕ ДОЛЖНО БЫТЬ ЗАПОЛНЕНО", bg=bagr, fg=red,
@@ -1481,7 +1498,7 @@ def menu_1(): #основная функция
                 b_b = tk.Button(vk,bg=bagr,image=lev,activebackground=bagr, command=b,relief = "flat")
                 f_b = tk.Button(vk,bg=bagr,image=prav,activebackground=bagr, command=fo, relief = "flat")
                 b_b.place(x=10,y=700)
-                f_b.place(x=1000,y=710)
+                f_b.place(x=1000,y=700)
                 if count > 1:
                     b_b.configure(state="normal")
                 if count < 99:
@@ -1524,9 +1541,7 @@ def menu_1(): #основная функция
 
     # функция вкл/выкл информации
     def oninf():#функция вкл информации
-        sound1.play()
         def offinf(): #функция выкл информации
-            sound1.play()
             info2.destroy()
             te.destroy()
             info3 = tk.Button(menu, width=70, height=60, relief="flat", bg=bagr, image=image3, command=oninf,activebackground=bagr, )
@@ -1535,7 +1550,7 @@ def menu_1(): #основная функция
         info1.destroy()
         info2 = tk.Button(menu, width=70, height=60, relief="flat", bg=bagr, image=image3, command=offinf,activebackground=bagr, )
         info2.place(x = 1100, y = 806)
-        te = tk.Label(menu,text = "ПРОГРАММА ПРОЕКТ\n АВТОР: ДЕНИС УРУСОВ ",bg = bagr, fg = tex,
+        te = tk.Label(menu,text = "ПРОГРАММА-ПРОЕКТ\n АВТОР: ДЕНИС УРУСОВ ",bg = bagr, fg = tex,
                       font = ("arial", 10, "bold"))
         te.place(x=900, y=820)
     info1 = tk.Button(menu, width=70, height=60, relief="flat", bg=bagr,image = image3,command = oninf,activebackground=bagr,)
@@ -1543,21 +1558,26 @@ def menu_1(): #основная функция
 
 
     #функция вкл/выкл музыки
-    def off(): #функция выкл
-        def on(): #функция вкл
-            stop_music = tk.Button(menu, width=70, height=60, image=image1, relief="flat", bg=bagr,activebackground=bagr, command=off,)
-            stop_music.place(x=20, y=806)
-            mixer.music.unpause()
-            sound1.set_volume(1)
-
-        stop_music.destroy()
-        play_music = tk.Button(menu, width=70, height=60, image=image2, relief="flat", bg=bagr,activebackground=bagr,command=on, )
-        play_music.place(x=20, y=806)
+    def on():  # функция вкл
+        global volume
+        mixer.music.unpause()
+        sound_win.set_volume(0.24)
+        sound_keyboard.set_volume(1)
+        music.configure(image=image1, command=off)
+        volume = True
+    def off():#функция выкл
+        global volume
         mixer.music.pause()
-        sound1.set_volume(0)
-    stop_music = tk.Button(menu,width=70,height=60,image = image1,relief = "flat",bg = bagr,activebackground=bagr,command = off,)
-    stop_music.place(x = 20, y = 806)
-
+        sound_win.set_volume(0)
+        sound_keyboard.set_volume(0)
+        music.configure(image=image2,command=on)
+        volume = False
+    if volume:
+        music = tk.Button(menu,width=70,height=60,image = image1,relief = "flat",bg = bagr,activebackground=bagr,command = off,)
+    else:
+        music = tk.Button(menu, width=70, height=60, image=image2, relief="flat", bg=bagr, activebackground=bagr,command=on, )
+    music.place(x = 20, y = 806)
     menu.pack()
+
 menu_1()
 window.mainloop()
