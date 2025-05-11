@@ -1217,6 +1217,7 @@ def menu_1():   #основная функция
                     window.after(1000, gn_track_time)
                 gn_track_time()
                 data['gn_games'] += 1
+
                 def back_gn(g="g"):
                     global gn_t
                     gn_t = False
@@ -1482,7 +1483,6 @@ def menu_1():   #основная функция
                             bigger_or_lower.place(x=451, y=350)
                             numbr_lbl.place(x=601, y=350)
 
-
                     if int(numbr) == guess_num:
                         global ajk
                         try: ajk.destroy()
@@ -1617,10 +1617,12 @@ def menu_1():   #основная функция
                 def stat_gn():
                     sound_keyboard.play()
                     global ajk
+
                     def ba():
                         sound_keyboard.play()
                         ajk.destroy()
                         stat.configure(command=stat_gn)
+
                     def upd():
                         try:
                             gh.configure(text=f"ПОБЕД: {data['gn_wins']}")
@@ -1658,9 +1660,11 @@ def menu_1():   #основная функция
             data['mem_games'] += 1
             data['sologames'] += 1
             data['games'] += 1
+
             def menu_mem():
                 global h,f
                 h = True
+
                 def mem_track_time():
                     if h:
                         data['mem_time'] += 1
@@ -1677,9 +1681,11 @@ def menu_1():   #основная функция
                 for i in range(3):
                     a = random.randint(1, 9)
                     truecombo = truecombo + str(a)
+
                 def play_3(first = True):
                     sound_play.play()
                     global combo, cnt,truecombo,ccc,vvv,pl3,combo_lbl,f
+
                     def again_mem():
                         play_3()
                     if first:
@@ -1687,6 +1693,7 @@ def menu_1():   #основная функция
                         pl3 = tk.Frame(window, width=1200, height=900)
                         pl3["bg"] = bagr
                         pl3.pack()
+
                     def show_combo(www=0):
                         global ccc, a,f
                         a = tk.Label(pl3, text="ЗАПОМНИТЕ КОМБИНАЦИЮ", font=("arial", 50, "bold"), bg=bagr)
@@ -1708,6 +1715,7 @@ def menu_1():   #основная функция
                     ccc += 1
                     combo = ""
                     cnt = 0
+
                     def check_mem(x):
                         global combo, cnt, truecombo, ccc, a
                         combo = combo + str(x)
@@ -1738,6 +1746,7 @@ def menu_1():   #основная функция
                                 sound_short_win.play()
                                 data['wins'] += 1
                                 data['solowins'] += 1
+
                     def back_play_3(g="g"):
                         global fi
                         fi = False
@@ -1782,6 +1791,7 @@ def menu_1():   #основная функция
                 solo_menu.destroy()
                 mem = tk.Frame(window, width=1200, height=900)
                 mem["bg"] = bagr
+
                 def back_memory(g="g"):
                     global h
                     h = False
@@ -1793,6 +1803,7 @@ def menu_1():   #основная функция
                 tk.Button(mem, image=imag, bg=bagr, command=back_memory, activebackground=bagr,
                                         relief="flat", width=60, height=50,).place(x=20,y=20)
                 tk.Button(mem,text="ИГРАТЬ",font=("Arial",60,"bold"),bg=bbg,activebackground=abg,command=play_3,relief="flat").place(x=404,y=690)
+
                 def guide_rps():
                     sound_keyboard.play()
                     global gh3
@@ -1827,12 +1838,15 @@ def menu_1():   #основная функция
 
 
                 def stat_mem():
+
                     sound_keyboard.play()
                     global ajk
+
                     def ba():
                         sound_keyboard.play()
                         ajk.destroy()
                         stat.configure(command=stat_mem)
+
                     def upd():
                         try:
                             t.configure(text=f"ВРЕМЯ В ИГРЕ:\n{time(data['mem_time'])}")
@@ -1855,9 +1869,11 @@ def menu_1():   #основная функция
                 stat.place(x=1100, y=807)
                 mem.pack()
             menu_mem()
+
         def bingo(j=False):
             global b_t
             b_t = True
+
             def bingo_track_time():
                 if b_t:
                     data['b_time'] += 1
@@ -1872,6 +1888,7 @@ def menu_1():   #основная функция
             sound_menu.play()
             if BACK:
                 sound_back.play()
+
             def play_5():
                 sound_play.play()
                 if BACK:
@@ -1894,11 +1911,13 @@ def menu_1():   #основная функция
                 tr = []
                 lbl = tk.Label(kl,font=("Arial", 80, "bold"),bg=bagr)
                 lbl.place(x=525,y=10)
+
                 def plaz():
                     global stop
                     stop = False
                     flf.configure(image=stp, command=step)
                     update_label()
+
                 def step():
                     global stop, ds, gh
                     gh -= 25
@@ -1911,6 +1930,7 @@ def menu_1():   #основная функция
                     flf.configure(image=pla,command=plaz)
                 flf = tk.Button(kl,bg=bbg,image=stp,relief="flat",command=step,activebackground=bbg)
                 flf.place(x=1050,y=772)
+
                 def back_play_76(g="g"):
                     global BACK
                     BACK = True
@@ -1924,6 +1944,7 @@ def menu_1():   #основная функция
                                relief="flat", width=60, height=50,)
                 f.place(x=20, y=20)
                 def ennd():
+
                     def start():
                         global stop
                         labl.destroy()
@@ -1932,6 +1953,7 @@ def menu_1():   #основная функция
                         k.destroy()
                         stop = False
                         update_label()
+
                     def ent():
                         global stop,lbl,gs,zx,count,flf,gh
                         lbl.destroy()
@@ -1990,6 +2012,7 @@ def menu_1():   #основная функция
                     bttn2 = tk.Button(k,text="НЕТ", font=("Arial", 40, "bold"), bg=red, relief="flat",
                                       command = start,activebackground=red)
                     bttn2.place(x=564, y=200)
+
                 def update_label():
                     global ij, stop, lbl, ds, gh
                     if stop:
@@ -2010,12 +2033,14 @@ def menu_1():   #основная функция
                         lbl.place(x=10,y=15)
                         f.place(x=20,y=120)
                 update_label()
+
                 def get_green(x,y):
                     global gs
                     gs.append(zxc[x*5+y])
                     globals()[f"btn{x}{y}"].configure(bg=green,command=lambda x=x,y=y: get_red(x,y))
                     if x == 2 and y==2:
                         globals()[f"btn{x}{y}"].configure(bg=bbg)
+
                 def get_red(x,y):
                     global gs
                     gs.remove(zxc[x*5+y])
@@ -2060,6 +2085,7 @@ def menu_1():   #основная функция
                         globals()[f"btn{i}{j}"].place(x=193+i*165,y=150+j*150)
                 kl.pack()
             solo_menu.destroy()
+
             def back_play_5(g="g"):
                 global b_t
                 b_t = False
@@ -2112,6 +2138,7 @@ def menu_1():   #основная функция
 
             def stat_b():
                 sound_keyboard.play()
+
                 def ba():
                     sound_keyboard.play()
                     ab.destroy()
@@ -2140,8 +2167,9 @@ def menu_1():   #основная функция
                              height=80, bg=bagr, command=stat_b, compound='top', text='СТАТИСТИКА',
                              font=('arial', 10, 'bold'))
             stat.place(x=1100, y=807)
-
             bing.pack()
+
+
         menu.destroy()
         solo_menu = tk.Frame(window, bg=bagr,)
         tk.Label(solo_menu,text = "ВЫБЕРИТЕ ИГРУ", bg=bagr, fg=tex,font=("arial", 75, "bold"), anchor="n",padx = 200).pack()
@@ -2165,6 +2193,7 @@ def menu_1():   #основная функция
     def multy_menu():
         global ss
         ss = True
+
         def mu_track_time():
             if ss:
                 data['multytime'] += 1
@@ -2178,6 +2207,7 @@ def menu_1():   #основная функция
         else:sound_menu.play()
         #функция выбора совместной игры
         window.geometry('1200x900+352+55')
+
         def back(g="f"):
             global ss
             ss = False
@@ -2190,6 +2220,7 @@ def menu_1():   #основная функция
         def vis2():
             global vis2_t
             vis2_t = True
+
             def vis2_track_time():
                 if vis2_t:
                     data['vis2_time'] += 1
@@ -2208,6 +2239,7 @@ def menu_1():   #основная функция
             count = 10
             gh =  False
             fgh = False
+
             def plus():
                 sound_keyboard.play()
                 global count,fd
@@ -2216,6 +2248,7 @@ def menu_1():   #основная функция
                     fd.configure(text=f"ПОПЫТОК:     {count}")
                     if count >= 10:
                         pl.place(x=736)
+
             def min():
                 sound_keyboard.play()
                 global count,fd
@@ -2224,6 +2257,7 @@ def menu_1():   #основная функция
                     fd.configure(text = f"ПОПЫТОК:     {count}")
                     if count < 10:
                         pl.place(x=712)
+
             def yy():
                 sound_play.play()
                 data['vis2_games'] += 1
@@ -2253,6 +2287,7 @@ def menu_1():   #основная функция
                         vic_print.place(x=400, y=100)
                 vi.destroy()
                 game_vis = tk.Frame(window, bg=bagr, height=900, width=1200)
+
                 def back_vic2(g="g"):
                     global vis2_t
                     vis2_t = False
@@ -2270,10 +2305,12 @@ def menu_1():   #основная функция
                                          font=("arial", 30, "bold")))
                 attempts.place(x=372, y=10)
                 df()
+
                 def check(letter):
                     data['vis2_try'] += 1
                     sound_keyboard.play()
                     global count
+
                     def end():
                         def again():
                             game_vis.destroy()
@@ -2374,6 +2411,7 @@ def menu_1():   #основная функция
                     globals()["lab" + str(i)] = (
                         tk.Label(game_vis, text="  ", bg=bbg, fg=tex, font=("arial", 70, "bold"), padx=29, ))
                     globals()["lab" + str(i)].place(x=d + i * 120, y=455, width=110, height=110)
+
                     def ggg(event):
                         char = event.char
                         if char in "АаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя" and char != "":
@@ -2384,6 +2422,7 @@ def menu_1():   #основная функция
                     game_vis.focus_set()
 
                     def stat_vis():
+
                         def ba():
                             ab.destroy()
                             stat.configure(command=stat_vis)
@@ -2419,6 +2458,7 @@ def menu_1():   #основная функция
                                      font=('arial', 10, 'bold'))
                     stat.place(x=1100, y=5)
                 game_vis.pack()
+
             def slo():
                 global ba12
                 try:ba12()
@@ -2512,6 +2552,7 @@ def menu_1():   #основная функция
             mi.place(x=640,y=405)
             pl.place(x=736,y=405)
             fd.place(x=412,y=405)
+
             def back_vis2(g="g"):
                 global vis2_t
                 vis2_t = False
@@ -2543,21 +2584,25 @@ def menu_1():   #основная функция
                                                      relief="flat", activebackground=abg,
                                                      command=lambda letter=f"{chr(1062 + i)}": wrd(letter))
                 globals()[chr(1062 + i)].place(x=184 + i * 85, y=800, width=70, height=70)
+
             def kj(event):
                 char = event.char
                 if char in "АаБбВвГгДдЕеЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя" and char != "":
                     wrd(char)
+
             def kjj(event):
                 wrd("del")
             vi.focus_set()
             vi.bind("<KeyPress-BackSpace>",kjj)
             vi.bind("<KeyPress>", kj)
+
             def entrr(g="g"):
                 global coun
                 if coun >= 3:
                     slo()
             vi.bind("<Return>", entrr)
             vi.bind('<Escape>',back_vis2)
+
             def guide_rps():
                 sound_keyboard.play()
                 global gh3
@@ -2578,9 +2623,12 @@ def menu_1():   #основная функция
             how_play = tk.Button(vi, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"), relief="flat",
                                  activebackground=abg, padx=20, command=guide_rps)
             how_play.place(x=492, y=590)
+
+
             def stat_vis2():
                 global ba12
                 sound_keyboard.play()
+
                 def ba12():
                     sound_keyboard.play()
                     ab3.destroy()
@@ -2612,7 +2660,6 @@ def menu_1():   #основная функция
                              font=('arial', 10, 'bold'))
             stat.place(x=1100, y=5)
             vi.pack()
-
 
 
         def slova():
@@ -2653,9 +2700,11 @@ def menu_1():   #основная функция
             cnt1_lbl.place(x=810,y=0)
             cnt2_lbl = tk.Label(sl,text=f"СЧЕТ: {cnt2}",bg=bbg,font=("arial", 35, "bold"))
             cnt2_lbl.place(x=605,y=0)
+
             def zan():
                 sl.destroy()
                 slova()
+
             def player1(g="g"):
                 global inpt,letter,tr,slovo,cont,word,cnt2
                 word = inpt.get()
@@ -2720,6 +2769,7 @@ def menu_1():   #основная функция
                 word = letter
                 wrd.configure(text=word)
                 wrd.place(x=1200-38,y=378)
+
             def player2():
                 global word,tr,wrd,inpt,letter,slovo,cont,cnt1,fir
                 try:slovo.destroy()
@@ -2793,6 +2843,7 @@ def menu_1():   #основная функция
             inpt_btn = tk.Button(sl,text="ОТПРАВИТЬ",bg=bbg,activebackground=abg,relief="flat",font=("arial", 40, "bold"),
                                  command=player2)
             inpt_btn.place(x=1014,y=785)
+
             def back_slova(g="g"):
                 global sl_t
                 sl_t = False
@@ -2828,7 +2879,6 @@ def menu_1():   #основная функция
                     cont -= 1
                 first = False
 
-
             back_btn_slova = tk.Button(sl, image=imag, bg=bagr, command=back_slova, activebackground=bagr,
                           relief="flat", width=60, height=50, ).place(x=20, y=10)
             #создвем кнопки с буквами
@@ -2860,6 +2910,7 @@ def menu_1():   #основная функция
                 current_value = entry_var.get()
                 entry_var.set(current_value.upper())
             err_lbl = tk.Label(sl, bg=bbg, fg=red, text="КОЛИЧЕСТВО БУКВ ДОЛЖНО БЫТЬ МЕНЕЕ 11",font=("arial", 25, "bold"))
+
             def validate_input(new_value):
                 global err_lbl_1,err_lbl
                 if len(new_value) > 10:
@@ -2886,6 +2937,7 @@ def menu_1():   #основная функция
             inpt.place(x=5,y=379)
             inpt.focus_set()
             inpt.bind('<Escape>',back_slova)
+
             def guide_rps():
                 sound_keyboard.play()
                 global gh3
@@ -2902,12 +2954,13 @@ def menu_1():   #основная функция
                 gh3.destroy()
                 how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
                 how_play.place(x=810, y=847)
-
             how_play = tk.Button(sl, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"), relief="flat",
                                  activebackground=abg, command=guide_rps)
             how_play.place(x=810, y=847)
+
             def stat_sl():
                 sound_keyboard.play()
+
                 def ba():
                     sound_keyboard.play()
                     ab.destroy()
@@ -2945,7 +2998,6 @@ def menu_1():   #основная функция
                              font=('arial', 10, 'bold'))
             stat.place(x=1500, y=5)
 
-
             sl.place(x=0,y=0)
         menu.destroy()
         multy = tk.Frame(window, bg=bagr,)
@@ -2960,32 +3012,26 @@ def menu_1():   #основная функция
         multy.pack()
 
 
-    #тело фунции меню
     menu = tk.Frame(window)
     menu["bg"] = bagr
     menutext = tk.Label(menu, bg=bagr, fg=tex, text="МЕНЮ", font=("arial", 100, "bold"), anchor="n",padx = 400,pady=45).pack()
     solo_btn = tk.Button(menu, text="ОДИНОЧНАЯ ИГРА", bg=bbg, fg=tex, font=("arial", 50, "bold"),pady= 10,
-                         activebackground=abg, command=solo,padx = 22,relief = "flat"
-                         ).pack()
+                         activebackground=abg, command=solo,padx = 22,relief = "flat").pack()
     multy_btn = tk.Button(menu, text="СОВМЕСТНАЯ ИГРА", bg=bbg, fg=tex, font=("arial", 50, "bold"),relief = "flat",
-                          activebackground=abg, pady=10,command = multy_menu,
-                         ).pack(pady=20, )
+                          activebackground=abg, pady=10,command = multy_menu,).pack(pady=20, )
     exit = tk.Button(menu, text="ВЫХОД", bg=bbg, fg=tex, font=("arial", 47, "bold"),relief = "flat",activebackground=abg, pady=10,
-                     command=exit
-                     ).pack(pady=100)
-
-
-
-
+                     command=exit).pack(pady=100)
 
 
     def ach_menu():
         global ach_f
         global ach
+
         def back(g=""):
             sound_back.play()
             ach_f.destroy()
             menu_1()
+
         def upd():
             try:
                 if data["new"] != "True":
@@ -3025,13 +3071,10 @@ def menu_1():   #основная функция
     achive_btn = tk.Button(menu, bg=bagr,activebackground=bagr, image=ach_im_1, width=85, height=80, relief='flat', compound='top', text='ДОСТИЖЕНИЯ', font=('arial', 10, 'bold'),command=ach_menu).place(x=1000, y=806)
 
 
-
-
-
-
     def st():
         sound_keyboard.play()
         a = tk.Frame(window, bg=bagr, height=900, width=1200)
+
         def upd():
             try:
                 tti.configure(text=f"ВРЕМЯ В ИГРЕ: {time(data['time'])}")
@@ -3039,13 +3082,16 @@ def menu_1():   #основная функция
                 window.after(1000, upd)
             except:
                 return
+
         def mmulty_games():
             a.destroy()
             mul = tk.Frame(window,bg=bagr,width=1200,height=900)
+
             def back1(g="g"):
                 sound_back.play()
                 mul.destroy()
                 st()
+
             f = tk.Button(mul, image=imag, bg=bagr, command=back1, activebackground=bagr, relief='flat', width=60, height=50).place(x=20, y=20)
             tk.Label(mul, text='СТАТИСТИКА ПО ИГРАМ', font=('arial', 60, 'bold'), bg=bbg).place(x=108, y=0)
             tk.Label(mul, text='ВИСЕЛИЦА ДЛЯ 2', font=('arial', 40, 'bold'), bg=bbg).place(x=6, y=110)
@@ -3075,13 +3121,17 @@ def menu_1():   #основная функция
             mul.focus_set()
             mul.bind("<Escape>",back1)
             mul.pack()
+
+
         def ssolo_games():
             a.destroy()
             sol = tk.Frame(window,bg=bagr,width=1200,height=900)
+
             def back(g="g"):
                 sol.destroy()
                 sound_back.play()
                 st()
+
             f = tk.Button(sol, image=imag, bg=bagr, command=back, activebackground=bagr, relief='flat', width=60, height=50).place(x=20, y=20)
             tk.Label(sol, text='СТАТИСТИКА ПО ИГРАМ', font=('arial', 60, 'bold'), bg=bbg).place(x=108, y=0)
             tk.Label(sol, text='КАМЕНЬ,\nНОЖНИЦЫ,\nБУМАГА', font=('arial', 40, 'bold'), bg=bbg).place(x=444, y=110)
@@ -3143,10 +3193,14 @@ def menu_1():   #основная функция
             sol.focus_set()
             sol.bind("<Escape>",back)
             sol.pack()
+
+
         def fgh(g=""):
             sound_back.play()
             a.destroy()
             menu_1()
+
+
         f = tk.Button(a, image=imag, bg=bagr, command=fgh, activebackground=bagr, relief='flat', width=60, height=50).place(x=20, y=20)
         a.bind('<Escape>', fgh)
         a.focus_set()
@@ -3180,6 +3234,7 @@ def menu_1():   #основная функция
         a.pack()
     main_stat = tk.Button(menu, image=stat_im, relief='flat', activebackground=bagr, width=85, height=80, bg=bagr, command=st, compound='top', text='СТАТИСТИКА', font=('arial', 10, 'bold')).place(x=1100, y=807)
 
+
     def set_v(n=1.0):
         mixer.music.set_volume(0.1 * n)
         sound_ach.set_volume(0.3 * n)
@@ -3194,6 +3249,8 @@ def menu_1():   #основная функция
         sound_ach.set_volume(0.2 * n)
         sound_mem1.set_volume(1 * n)
         sound_lose.set_volume(0.35 * n)
+
+
     def on(n="f"):
         global volume,xx
         volume_scale.set(xx)
@@ -3223,7 +3280,6 @@ def menu_1():   #основная функция
         music = tk.Button(menu, width=105, height=80, image=image1, relief='flat', bg=bagr, activebackground=bagr, command=off, compound='top', text='fnonose - blessed', font=('arial', 10, 'bold'))
     else: music = tk.Button(menu, width=105, height=80, image=image2, relief='flat', bg=bagr, activebackground=bagr, command=off, compound='top', text='fnonose - blessed', font=('arial', 10, 'bold'))
     music.place(x=15, y=806)
-
     def ggg(x):
         global xx
         if x == '0':
