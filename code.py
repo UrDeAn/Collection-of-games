@@ -752,12 +752,14 @@ def menu_1():   #основная функция
                 diff_menu.focus_set()
                 diff_menu.bind('<Escape>',back_1)
                 def guide_vis_m():
+                    sound_keyboard.play()
                     global gh3
                     how_play.configure(text="СКРЫТЬ",command=cl)
                     gh3 = tk.Label(diff_menu, bg=bbg, text="КАК ИГРАТЬ В ВИСИЛИЦУ?\nСНАЧАЛА ВЫБЕРИТЕ СЛОЖНОСТЬ:\n1. ЛЕГКАЯ(СЛОВА ОТ 4 ДО 5 БУКВ И 10 ПОПЫТОК),\n2. СРЕДНЯЯ(СЛОВА ОТ 5 ДО 6 БУКВ И 8 ПОПЫТОК),\n3. СЛОЖНАЯ(СЛОВА ОТ 7 ДО 8 БУКВ И 7 ПОПЫТОК),\nЗАТЕМ ВВОДИТЕ БУКВЫ С КЛАВИАТУРЫ(РЕАЛЬНОЙ ИЛИ ВИРТУАЛЬНОЙ),\nЕСЛИ БУКВА ЕСТЬ В СЛОВЕ, ТО ОНА ВСТАНЕТ НА СВОЕ МЕСТО И ЗАГОРИТСЯ ЗЕЛЕНЫМ,\nА ЕСЛИ БУКВЫ НЕТ, ТО ОНА ЗАГОРИТСЯ КРАСНЫМ И КОЛ-ВО ПОПЫТОК УМЕНЬШИТСЯ.\nИГРА ИДЕТ ДО ТЕХ ПОР,\nПОКА СЛОВО НЕ БУДЕТ ОТГАДАНО\nИЛИ КОЛ-ВО ПОПЫТОК НЕ СТАНЕТ РАВНЫМ 0.\n(НА КЛАВИАТУРЕ ИСПОЛЬЗУЙТЕ РУССКУЮ РАСКЛАДКУ)"
                              ,justify="center", font=("arial", 17, "bold"))
                     gh3.place(x=22,y=257)
                 def cl():
+                    sound_keyboard.play()
                     global gh3
                     gh3.destroy()
                     how_play.configure(text="КАК ИГРАТЬ?",command = guide_vis_m)
@@ -984,6 +986,7 @@ def menu_1():   #основная функция
                         window.after(10,upd)
                         stat.configure(command=ba)
                     def guide_vis_m():
+                        sound_keyboard.play()
                         global gh3
                         how_play.configure(text="СКРЫТЬ", command=cl)
                         how_play.place(x=512, y=854)
@@ -993,6 +996,7 @@ def menu_1():   #основная функция
                         gh3.place(x=68, y=100)
 
                     def cl():
+                        sound_keyboard.play()
                         global gh3
                         gh3.destroy()
                         how_play.configure(text="КАК ИГРАТЬ?", command=guide_vis_m)
@@ -1111,14 +1115,16 @@ def menu_1():   #основная функция
                                      relief="flat",activebackground=bagr).place(x=20,y=20)
             rps.focus_set()
             def guide_rps():
+                sound_keyboard.play()
                 global gh3
                 how_play.configure(text="СКРЫТЬ", command=cl_rps)
-                how_play.place(x=520,y=865)
+                how_play.place(x=523,y=865)
                 gh3 = tk.Label(rps, bg=bbg,
                                text="КАК ИГРАТЬ В КАМЕНЬ, НОЖНИЦЫ, БУМАГА?\nСНАЧАЛА ВЫБЕРИТЕ ОДИН ИЗ ВАРИАНТОВ СВОЕГО ХОДА:\n1. КАМЕНЬ(ПОБЕЖДАЕТ НОЖНИЦЫ, НО ПРОИГРЫВАЕТ БУМАГЕ),\n2. НОЖНИЦЫ(ПОБЕЖДАЮТ БУМАГУ, НО ПРОИГРЫВАЮТ КАМНЮ),\n3. БУМАГА(ПОБЕЖДАЕТ КАМЕНЬ, НО ПРОИГРЫВАЕТ НОЖНИЦАМ),\nЗАТЕМ ВАШ ХОД СРАВНЯТ С ХОДОМ СОПЕРНИКА(КОМПЬЮТЕРОМ)\nИ БУДЕТ ОПРЕДЕЛЕН РЕЗУЛЬТАТ ИГРЫ."
                                , justify="center", font=("arial", 16, "bold"),pady=6)
                 gh3.place(x=242, y=410)
             def cl_rps():
+                sound_keyboard.play()
                 global gh3
                 gh3.destroy()
                 how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
@@ -1181,6 +1187,7 @@ def menu_1():   #основная функция
             diff_menu.focus_set()
             diff_menu.bind('<Escape>', back_1)
             def guide_vis_m():
+                sound_keyboard.play()
                 global gh3
                 how_play.configure(text="СКРЫТЬ", command=cl)
                 gh3 = tk.Label(diff_menu, bg=bbg,
@@ -1188,6 +1195,7 @@ def menu_1():   #основная функция
                                , justify="center", font=("arial", 21, "bold"))
                 gh3.place(x=11, y=257)
             def cl():
+                sound_keyboard.play()
                 global gh3
                 gh3.destroy()
                 how_play.configure(text="КАК ИГРАТЬ?", command=guide_vis_m)
@@ -1288,6 +1296,7 @@ def menu_1():   #основная функция
                         count += 1
 
                 def print_numb():
+                    sound_keyboard.play()
                     global ioi
                     data['gn_try'] += 1
                     ioi += 1
@@ -1561,6 +1570,7 @@ def menu_1():   #основная функция
                                     relief = "flat",command=lambda number = "del":inpt(number))
 
                 def guide_rps():
+                    sound_keyboard.play()
                     global gh3
                     how_play.configure(text="СКРЫТЬ", command=cl_rps)
                     how_play.place(x=520, y=865)
@@ -1570,6 +1580,7 @@ def menu_1():   #основная функция
                     gh3.place(x=130, y=420)
 
                 def cl_rps():
+                    sound_keyboard.play()
                     global gh3
                     gh3.destroy()
                     how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
@@ -1783,6 +1794,7 @@ def menu_1():   #основная функция
                                         relief="flat", width=60, height=50,).place(x=20,y=20)
                 tk.Button(mem,text="ИГРАТЬ",font=("Arial",60,"bold"),bg=bbg,activebackground=abg,command=play_3,relief="flat").place(x=404,y=690)
                 def guide_rps():
+                    sound_keyboard.play()
                     global gh3
                     how_play.configure(text="СКРЫТЬ", command=cl_rps)
                     how_play.place(x=520, y=860)
@@ -1792,6 +1804,7 @@ def menu_1():   #основная функция
                     gh3.place(x=58, y=417)
 
                 def cl_rps():
+                    sound_keyboard.play()
                     global gh3
                     gh3.destroy()
                     how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
@@ -2077,6 +2090,7 @@ def menu_1():   #основная функция
             bing.bind("<Escape>", back_play_5)
 
             def guide_rps():
+                sound_keyboard.play()
                 global gh3
                 how_play.configure(text="СКРЫТЬ", command=cl_rps)
                 how_play.place(x=10, y=846)
@@ -2086,6 +2100,7 @@ def menu_1():   #основная функция
                 gh3.place(x=58, y=246)
 
             def cl_rps():
+                sound_keyboard.play()
                 global gh3
                 gh3.destroy()
                 how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
@@ -2544,6 +2559,7 @@ def menu_1():   #основная функция
             vi.bind("<Return>", entrr)
             vi.bind('<Escape>',back_vis2)
             def guide_rps():
+                sound_keyboard.play()
                 global gh3
                 how_play.configure(text="СКРЫТЬ", command=cl_rps)
                 how_play.place(x=520, y=590)
@@ -2553,6 +2569,7 @@ def menu_1():   #основная функция
                 gh3.place(x=5, y=246)
 
             def cl_rps():
+                sound_keyboard.play()
                 global gh3
                 gh3.destroy()
                 how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
@@ -2870,15 +2887,17 @@ def menu_1():   #основная функция
             inpt.focus_set()
             inpt.bind('<Escape>',back_slova)
             def guide_rps():
+                sound_keyboard.play()
                 global gh3
                 how_play.configure(text="СКРЫТЬ", command=cl_rps)
                 how_play.place(x=810, y=847)
                 gh3 = tk.Label(sl, bg=bbg,
-                               text="КАК ИГРАТЬ В ВИСЕЛИЦУ ДЛЯ 2?\nСНАЧАЛА ИГРОК 1 ДОЛЖЕН ЗАГАДАТЬ СЛОВО И УСТАНОВИТЬ КОЛ-ВО ПОПЫТОК ДЛЯ ИГРОКА 2,\nЗАТЕМ ИГРОК 2 СЫГРАЕТ В ОБЫЧНУЮ ВИСЕЛИЦУ, НО СО СЛОВОМ, ЗАГАДАННЫМ ИГРОКОМ 1."
+                               text="КАК ИГРАТЬ В СЛОВА?\nСНАЧАЛА ИГРОК 1 ДОЛЖЕН ЗАГАДАТЬ ВВЕСТИ ЛЮБОЕ СЛОВО,\nЗАТЕМ ИГРОК 2 ДОЛЖЕН ВВЕСТИ СЛОВО, НАЧИНАЮЩЕЕСЯ НА ПОСЛЕДНЮЮ БУКВУ СЛОВА ИГРОКА 1(ЕСЛИ БУКВА НЕ Ь, Ъ, Ы)\n ПОСЛЕ ЧЕГО ИГРОК 1 ДОЛЖЕН ТОЖЕ САМОЕ.\nИГРА ИДЕТ ДО ТЕХ ПОР,\n ПОКА ОДИН ИЗ ИГРОКОВ НЕ ВВЕДЕТ ПОВТОРЯЮЩЕЕСЯ СЛОВО ИЛИ СЛОВО НЕ НА ПОСЛЕДНЮЮ БУКВУ ПРЕДЫДУЩЕГО."
                                , justify="center", font=("arial", 18, "bold"),pady=5)
-                gh3.place(x=5, y=246)
+                gh3.place(x=16, y=186)
 
             def cl_rps():
+                sound_keyboard.play()
                 global gh3
                 gh3.destroy()
                 how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
@@ -2964,6 +2983,7 @@ def menu_1():   #основная функция
         global ach_f
         global ach
         def back(g=""):
+            sound_back.play()
             ach_f.destroy()
             menu_1()
         def upd():
