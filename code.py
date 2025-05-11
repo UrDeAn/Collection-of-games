@@ -83,6 +83,7 @@ triu = ImageTk.PhotoImage(file='pictures\\треугл.png')
 triu1 = ImageTk.PhotoImage(file='pictures\\треугл1.png')
 pal = ImageTk.PhotoImage(file='pictures\\пал.png')
 dos = ImageTk.PhotoImage(file='pictures\\ДОС.png')
+bac = ImageTk.PhotoImage(file='pictures\\бак.png')
 
 
 mixer.init()
@@ -170,7 +171,7 @@ def chec():
         g = tk.Frame(window,bg=abg, width=345, height=90,pady=2,padx=2)
         im = tk.Label(g,image=dos,bg=bbg)
         im.place(x=0,y=0)
-        ll = tk.Frame(g,bg=red,height=86,width=276)
+        ll = tk.Frame(g,bg=bbg,height=86,width=276)
         thj = tk.Entry(ll,bg=bbg,width=21,relief="flat",justify="center",font=("Arial",18,"bold"),cursor="arrow",fg=green)
         thj.insert(0, main)
         thj.bind("<FocusIn>",ll12)
@@ -453,11 +454,132 @@ def chec():
             data["new"] = "False"
     if data['mem_max'] >= 13:
         if data["13mem_max"] != "True":
-            achive('ПОВТОРИ ЗА МНОЙ max', 'ДОСТИГНУТЬ КОМБО 14', "В ПОВТОРИ ЗА МНОЙ")
+            achive('ПОВТОРИ max', 'ДОСТИГНУТЬ КОМБО 14', "В ПОВТОРИ ЗА МНОЙ")
             data["13mem_max"] = "True"
             data["memCount"] = "ПОВТОРИ ЗА МНОЙ max"
             data["mem_wins_c"] = "13"
             data["new"] = "False"
+
+
+    if data["bing_count"] >= 5000:
+        if data["5000bing_max"] != "True":
+            achive('БИНГО 1', 'ДОСТИГНУТЬ СЧЕТА 5000', "В БИНГО")
+            data["5000bing_max"] = "True"
+            data["bingCount"] = "БИНГО 1"
+            data["bing_wins_c"] = "5000"
+            data["new"] = "False"
+    if data["bing_count"] >= 10000:
+        if data["10000bing_max"] != "True":
+            achive('БИНГО 2', 'ДОСТИГНУТЬ СЧЕТА 10000', "В БИНГО")
+            data["10000bing_max"] = "True"
+            data["bingCount"] = "БИНГО"
+            data["bing_wins_c"] = "10000"
+            data["new"] = "False"
+    if data["bing_count"] >= 25000:
+        if data["25000bing_max"] != "True":
+            achive('БИНГО 3', 'ДОСТИГНУТЬ СЧЕТА 25000', "В БИНГО")
+            data["25000bing_max"] = "True"
+            data["bingCount"] = "БИНГО 3"
+            data["bing_wins_c"] = "25000"
+            data["new"] = "False"
+    if data["bing_count"] >= 50000:
+        if data["50000bing_max"] != "True":
+            achive('БИНГО 4', 'ДОСТИГНУТЬ СЧЕТА 50000', "В БИНГО")
+            data["50000bing_max"] = "True"
+            data["bingCount"] = "БИНГО 4"
+            data["bing_wins_c"] = "50000"
+            data["new"] = "False"
+    if data["bing_count"] >= 100000:
+        if data["100000bing_max"] != "True":
+            achive('БИНГО max', 'ДОСТИГНУТЬ СЧЕТА 100K', "В БИНГО")
+            data["100000bing_max"] = "True"
+            data["bingCount"] = "БИНГО max"
+            data["bing_wins_c"] = "100000"
+            data["new"] = "False"
+
+        if data['vis2_wins'] >= 5:
+            if data["5vis2_wins"] != "True":
+                achive('ВИСЕЛИЦА ДЛЯ 2 1', 'ОДЕРЖАТЬ 5 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
+                data["5vis2_wins"] = "True"
+                data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 1"
+                data["vis2_wins_с"] = "5 ПОБЕД"
+                data["new"] = "False"
+        if data['vis2_wins'] >= 10:
+            if data["10vis2_wins"] != "True":
+                achive('ВИСЕЛИЦА ДЛЯ 2 2', 'ОДЕРЖАТЬ 10 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
+                data["10vis2_wins"] = "True"
+                data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 2"
+                data["vis2_wins_с"] = "10 ПОБЕД"
+                data["new"] = "False"
+        if data['vis2_wins'] >= 25:
+            if data["25vis2_wins"] != "True":
+                achive('ВИСЕЛИЦА ДЛЯ 2 3', 'ОДЕРЖАТЬ 25 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
+                data["25vis2_wins"] = "True"
+                data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 3"
+                data["vis2_wins_с"] = "25 ПОБЕД"
+                data["new"] = "False"
+        if data['vis2_wins'] >= 50:
+            if data["50vis2_wins"] != "True":
+                achive('ВИСЕЛИЦА ДЛЯ 2 4', 'ОДЕРЖАТЬ 50 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
+                data["50vis2_wins"] = "True"
+                data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 4"
+                data["vis2_wins_с"] = "50 ПОБЕД"
+                data["new"] = "False"
+        if data['vis2_wins'] >= 100:
+            if data["100vis2_wins"] != "True":
+                achive('ВИСЕЛИЦА ДЛЯ 2 max', 'ОДЕРЖАТЬ 100 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
+                data["100vis2_wins"] = "True"
+                data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 max"
+                data["vis2_wins_с"] = "100 ПОБЕД"
+                data["new"] = "False"
+
+
+
+        if (data['sl_count1']+data['sl_count2']) >= 10:
+            if data["10sl_wins"] != "True":
+                achive('СЛОВА 1', 'ДОСТИГНУТЬ СЧЕТА 10', "В СЛОВАХ")
+                data["10sl_wins"] = "True"
+                data["slCount"] = "СЛОВА 1"
+                data["sl_wins_c"] = "10"
+                data["new"] = "False"
+        if (data['sl_count1']+data['sl_count2']) >= 20:
+            if data["20sl_wins"] != "True":
+                achive('СЛОВА 2', 'ДОСТИГНУТЬ СЧЕТА 20', "В СЛОВАХ")
+                data["20sl_wins"] = "True"
+                data["slCount"] = "СЛОВА 2"
+                data["sl_wins_c"] = "20"
+                data["new"] = "False"
+        if (data['sl_count1']+data['sl_count2']) >= 50:
+            if data["50sl_wins"] != "True":
+                achive('СЛОВА 3', 'ДОСТИГНУТЬ СЧЕТА 50', "В СЛОВАХ")
+                data["50sl_wins"] = "True"
+                data["slCount"] = "СЛОВА 3"
+                data["sl_wins_c"] = "50"
+                data["new"] = "False"
+        if (data['sl_count1']+data['sl_count2']) >= 100:
+            if data["100sl_wins"] != "True":
+                achive('СЛОВА 4', 'ДОСТИГНУТЬ СЧЕТА 100', "В СЛОВАХ")
+                data["100sl_wins"] = "True"
+                data["slCount"] = "СЛОВА 4"
+                data["sl_wins_c"] = "100"
+                data["new"] = "False"
+        if (data['sl_count1']+data['sl_count2']) >= 200:
+            if data["200sl_wins"] != "True":
+                achive('СЛОВА max', 'ДОСТИГНУТЬ СЧЕТА 200', "В СЛОВАХ")
+                data["200sl_wins"] = "True"
+                data["slCount"] = "СЛОВА max"
+                data["sl_wins_c"] = "200"
+                data["new"] = "False"
+
+
+        if (data["bing_count"] >= 100000 and data['mem_max'] >= 13 and data['gn_wins'] >= 100 and data['rps_wins'] >= 500 and
+            data['vis_wins'] >= 100 and data['games'] >= 500 and data['opens'] >= 500 and data['time'] >= 180000 and
+        data['vis2_wins'] >= 100 and (data['sl_count1']+data['sl_count2']) >= 200):
+            if data["max_max"] != "True":
+                achive('MAX max MAX', 'ДОСТИГНУТЬ max', " ВО ВСЕХ ДОСТИЖЕНИЯ")
+                data["max_max"] = "True"
+                data["maxt1"] = "ДОСТИГНУТЬ РАНГА max"
+                data["maxt2"] = "ВО ВСЕХ ДОСТИЖЕНИЯ"
     window.after(500, chec)
 window.after(500, chec)
 
@@ -590,11 +712,10 @@ def menu_1():   #основная функция
                     solo()
 
                 def diff(difficul):
-                    global game_vis,vis_t
-                    game_vis = tk.Frame(window, width=1200, height=900)
+                    global game_vis,vis_t,diff_menu
+                    game_vis = tk.Frame(window, width=1200, height=1100)
                     game_vis["bg"] = bagr
                     global count
-                    diff_menu.destroy()
                     if difficul == 1:
                         count = 10
                         wrd = words_4_5
@@ -618,7 +739,7 @@ def menu_1():   #основная функция
                 diff_menu = tk.Frame(window, width=1200, height=900)
                 diff_menu["bg"] = bagr
                 diffpick = tk.Label(diff_menu, text="ВЫБЕРИТЕ СЛОЖНОСТЬ", bg=bagr, fg=tex, font=("arial", 65, "bold"),
-                                    anchor="n", ).pack(pady=20)
+                                    anchor="n", ).pack(pady=5)
                 diff1 = tk.Button(diff_menu, text="ЛЕГКАЯ", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
                                   activebackground=abg, command=lambda difficult=1: diff(difficult), padx=55)
                 diff1.pack(pady=15)
@@ -628,11 +749,25 @@ def menu_1():   #основная функция
                 diff3 = tk.Button(diff_menu, text="СЛОЖНАЯ", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
                                   activebackground=abg, padx=19, command=lambda difficult=3: diff(difficult))
                 diff3.pack(pady=15)
-                ex = tk.Button(diff_menu, text="НАЗАД", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
-                               activebackground=abg, padx=27, command=back_1)
-                ex.pack(pady=90)
                 diff_menu.focus_set()
                 diff_menu.bind('<Escape>',back_1)
+                def guide_vis_m():
+                    global gh3
+                    how_play.configure(text="СКРЫТЬ",command=cl)
+                    gh3 = tk.Label(diff_menu, bg=bbg, text="КАК ИГРАТЬ В ВИСИЛИЦУ?\nСНАЧАЛА ВЫБЕРИТЕ СЛОЖНОСТЬ:\n1. ЛЕГКАЯ(СЛОВА ОТ 4 ДО 5 БУКВ И 10 ПОПЫТОК),\n2. СРЕДНЯЯ(СЛОВА ОТ 5 ДО 6 БУКВ И 8 ПОПЫТОК),\n3. СЛОЖНАЯ(СЛОВА ОТ 7 ДО 8 БУКВ И 7 ПОПЫТОК),\nЗАТЕМ ВВОДИТЕ БУКВЫ С КЛАВИАТУРЫ(РЕАЛЬНОЙ ИЛИ ВИРТУАЛЬНОЙ),\nЕСЛИ БУКВА ЕСТЬ В СЛОВЕ, ТО ОНА ВСТАНЕТ НА СВОЕ МЕСТО И ЗАГОРИТСЯ ЗЕЛЕНЫМ,\nА ЕСЛИ БУКВЫ НЕТ, ТО ОНА ЗАГОРИТСЯ КРАСНЫМ И КОЛ-ВО ПОПЫТОК УМЕНЬШИТСЯ.\nИГРА ИДЕТ ДО ТЕХ ПОР,\nПОКА СЛОВО НЕ БУДЕТ ОТГАДАНО\nИЛИ КОЛ-ВО ПОПЫТОК НЕ СТАНЕТ РАВНЫМ 0.\n(НА КЛАВИАТУРЕ ИСПОЛЬЗУЙТЕ РУССКУЮ РАСКЛАДКУ)"
+                             ,justify="center", font=("arial", 17, "bold"))
+                    gh3.place(x=22,y=257)
+                def cl():
+                    global gh3
+                    gh3.destroy()
+                    how_play.configure(text="КАК ИГРАТЬ?",command = guide_vis_m)
+                how_play = tk.Button(diff_menu, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 18, "bold"),
+                                     relief="flat", activebackground=abg, padx=27, command=guide_vis_m)
+                how_play.pack(pady=20)
+
+                ex = tk.Button(diff_menu, text="НАЗАД", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
+                               activebackground=abg, padx=27, command=back_1)
+                ex.pack(pady=70)
                 diff_menu.pack()
                 def play(wrd):
                     global vis_t,p
@@ -816,7 +951,9 @@ def menu_1():   #основная функция
                     game_vis.bind("<Key>",ggg)
                     game_vis.bind('<Escape>', back_vic)
                     def stat_vis():
+                        sound_keyboard.play()
                         def ba():
+                            sound_keyboard.play()
                             ab.destroy()
                             stat.configure(command=stat_vis)
                         def upd():
@@ -846,6 +983,23 @@ def menu_1():   #основная функция
                         t.place(x=-1, y=215)
                         window.after(10,upd)
                         stat.configure(command=ba)
+                    def guide_vis_m():
+                        global gh3
+                        how_play.configure(text="СКРЫТЬ", command=cl)
+                        how_play.place(x=512, y=854)
+                        gh3 = tk.Label(game_vis, bg=bbg,
+                                       text="КАК ИГРАТЬ В ВИСИЛИЦУ?\nСНАЧАЛА ВЫБЕРИТЕ СЛОЖНОСТЬ:\n1. ЛЕГКАЯ(СЛОВА ОТ 4 ДО 5 БУКВ И 10 ПОПЫТОК),\n2. СРЕДНЯЯ(СЛОВА ОТ 5 ДО 6 БУКВ И 8 ПОПЫТОК),\n3. СЛОЖНАЯ(СЛОВА ОТ 7 ДО 8 БУКВ И 7 ПОПЫТОК),\nЗАТЕМ ВВОДИТЕ БУКВЫ С КЛАВИАТУРЫ(РЕАЛЬНОЙ ИЛИ ВИРТУАЛЬНОЙ),\nЕСЛИ БУКВА ЕСТЬ В СЛОВЕ, ТО ОНА ВСТАНЕТ НА СВОЕ МЕСТО И ЗАГОРИТСЯ ЗЕЛЕНЫМ,\nА ЕСЛИ БУКВЫ НЕТ, ТО ОНА ЗАГОРИТСЯ КРАСНЫМ И КОЛ-ВО ПОПЫТОК УМЕНЬШИТСЯ.\nИГРА ИДЕТ ДО ТЕХ ПОР,\nПОКА СЛОВО НЕ БУДЕТ ОТГАДАНО\nИЛИ КОЛ-ВО ПОПЫТОК НЕ СТАНЕТ РАВНЫМ 0.\n(НА КЛАВИАТУРЕ ИСПОЛЬЗУЙТЕ РУССКУЮ РАСКЛАДКУ)"
+                                       , justify="center", font=("arial", 17, "bold"))
+                        gh3.place(x=68, y=100)
+
+                    def cl():
+                        global gh3
+                        gh3.destroy()
+                        how_play.configure(text="КАК ИГРАТЬ?", command=guide_vis_m)
+                        how_play.place(x=480, y=854)
+                    how_play = tk.Button(game_vis, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 18, "bold"),
+                                             relief="flat", activebackground=abg, padx=27, command=guide_vis_m)
+                    how_play.place(x=480,y=854)
                     stat = tk.Button(game_vis, image=stat_im, relief='flat', activebackground=bagr, width=85,
                                           height=80, bg=bagr, command=stat_vis, compound='top', text='СТАТИСТИКА',
                                           font=('arial', 10, 'bold'))
@@ -956,6 +1110,21 @@ def menu_1():   #основная функция
             back_rps_btn = tk.Button(rps,bg=bagr,image = imag,command= back_RPS,width=60,height=50,
                                      relief="flat",activebackground=bagr).place(x=20,y=20)
             rps.focus_set()
+            def guide_rps():
+                global gh3
+                how_play.configure(text="СКРЫТЬ", command=cl_rps)
+                how_play.place(x=520,y=865)
+                gh3 = tk.Label(rps, bg=bbg,
+                               text="КАК ИГРАТЬ В КАМЕНЬ, НОЖНИЦЫ, БУМАГА?\nСНАЧАЛА ВЫБЕРИТЕ ОДИН ИЗ ВАРИАНТОВ СВОЕГО ХОДА:\n1. КАМЕНЬ(ПОБЕЖДАЕТ НОЖНИЦЫ, НО ПРОИГРЫВАЕТ БУМАГЕ),\n2. НОЖНИЦЫ(ПОБЕЖДАЮТ БУМАГУ, НО ПРОИГРЫВАЮТ КАМНЮ),\n3. БУМАГА(ПОБЕЖДАЕТ КАМЕНЬ, НО ПРОИГРЫВАЕТ НОЖНИЦАМ),\nЗАТЕМ ВАШ ХОД СРАВНЯТ С ХОДОМ СОПЕРНИКА(КОМПЬЮТЕРОМ)\nИ БУДЕТ ОПРЕДЕЛЕН РЕЗУЛЬТАТ ИГРЫ."
+                               , justify="center", font=("arial", 16, "bold"),pady=6)
+                gh3.place(x=242, y=410)
+            def cl_rps():
+                global gh3
+                gh3.destroy()
+                how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
+                how_play.place(x=494, y=865)
+            how_play = tk.Button(rps, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"),relief="flat", activebackground=abg, padx=20, command=guide_rps)
+            how_play.place(x=494, y=865)
             rps.bind('<Escape>', back_RPS)
             def upd():
                 try:
@@ -999,7 +1168,7 @@ def menu_1():   #основная функция
             diff_menu = tk.Frame(window, width=1200, height=900)
             diff_menu["bg"] = bagr
             diffpick = tk.Label(diff_menu, text="ВЫБЕРИТЕ СЛОЖНОСТЬ", bg=bagr, fg=tex, font=("arial", 65, "bold"),
-                                anchor="n", ).pack(pady=20)
+                                anchor="n", ).pack(pady=5)
             diff1 = tk.Button(diff_menu, text="ЛЕГКАЯ", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
                               activebackground=abg, command=lambda difficult=1: diff(difficult), padx=55)
             diff1.pack(pady=15)
@@ -1009,13 +1178,26 @@ def menu_1():   #основная функция
             diff3 = tk.Button(diff_menu, text="СЛОЖНАЯ", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
                               activebackground=abg, padx=19, command=lambda difficult=3: diff(difficult))
             diff3.pack(pady=15)
-            ex = tk.Button(diff_menu, text="НАЗАД", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
-                           activebackground=abg, padx=27, command=back_1)
-            ex.pack(pady=90)
             diff_menu.focus_set()
             diff_menu.bind('<Escape>', back_1)
+            def guide_vis_m():
+                global gh3
+                how_play.configure(text="СКРЫТЬ", command=cl)
+                gh3 = tk.Label(diff_menu, bg=bbg,
+                               text="КАК ИГРАТЬ В УГАДАЙ ЧИСЛО?\nСНАЧАЛА ВЫБЕРИТЕ СЛОЖНОСТЬ:\n1. ЛЕГКАЯ(НУЖНО УГДАТЬ ЧИСЛО ОТ 0 ДО 100),\n2. СРЕДНЯЯ(НУЖНО УГДАТЬ ЧИСЛО ОТ 0 ДО 1000),\n3. СЛОЖНАЯ(НУЖНО УГДАТЬ ЧИСЛО ОТ 0 ДО 10000),\nЗАТЕМ ВВОДИТЕ ЧИСЛА С КЛАВИАТУРЫ(РЕАЛЬНОЙ ИЛИ ВИРТУАЛЬНОЙ),\nВВЕДЕННОЕ ЧИСЛО ВСТАНЕТ НА СВОЁ МЕСТО В ДВОЙНОМ НЕРАВЕНСТВЕ,\n ЕСЛИ ОНО СУЖАЕТ ОБЛАСТЬ ЗНАЧЕНИЯ Х,\nИГРА ИДЕТ ДО ТЕХ ПОР, ПОКА ЧИСЛО НЕ БУДЕТ ОТГАДАННО"
+                               , justify="center", font=("arial", 21, "bold"))
+                gh3.place(x=11, y=257)
+            def cl():
+                global gh3
+                gh3.destroy()
+                how_play.configure(text="КАК ИГРАТЬ?", command=guide_vis_m)
+            how_play = tk.Button(diff_menu, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 18, "bold"),
+                                 relief="flat", activebackground=abg, padx=27, command=guide_vis_m)
+            how_play.pack(pady=20)
+            ex = tk.Button(diff_menu, text="НАЗАД", bg=bbg, fg=tex, font=("arial", 45, "bold"), relief="flat",
+                           activebackground=abg, padx=27, command=back_1)
+            ex.pack(pady=70)
             diff_menu.pack()
-
             def play_2(max_num):
                 global gn_t
                 gn_t = True
@@ -1377,6 +1559,25 @@ def menu_1():   #основная функция
                 inp_btn.place(x=50,y=510)
                 del_alf = tk.Button(gn,text = "FF",image = del_png,bg =bagr,activebackground=bagr,
                                     relief = "flat",command=lambda number = "del":inpt(number))
+
+                def guide_rps():
+                    global gh3
+                    how_play.configure(text="СКРЫТЬ", command=cl_rps)
+                    how_play.place(x=520, y=865)
+                    gh3 = tk.Label(gn, bg=bbg,
+                                   text="КАК ИГРАТЬ В УГАДАЙ ЧИСЛО?\nСНАЧАЛА ВЫБЕРИТЕ СЛОЖНОСТЬ:\n1. ЛЕГКАЯ(НУЖНО УГДАТЬ ЧИСЛО ОТ 0 ДО 100),\n2. СРЕДНЯЯ(НУЖНО УГДАТЬ ЧИСЛО ОТ 0 ДО 1000),\n3. СЛОЖНАЯ(НУЖНО УГДАТЬ ЧИСЛО ОТ 0 ДО 10000),\nЗАТЕМ ВВОДИТЕ ЧИСЛА С КЛАВИАТУРЫ(РЕАЛЬНОЙ ИЛИ ВИРТУАЛЬНОЙ),\nВВЕДЕННОЕ ЧИСЛО ВСТАНЕТ НА НУЖНОЕ МЕСТО В ДВОЙНОМ НЕРАВЕНСТВЕ,\n ЕСЛИ ОНО СУЖАЕТ ОБЛАСТЬ ЗНАЧЕНИЯ Х,\nИГРА ИДЕТ ДО ТЕХ ПОР, ПОКА ЧИСЛО НЕ БУДЕТ ОТГАДАННО"
+                                   , justify="center", font=("arial", 17, "bold"), pady=6)
+                    gh3.place(x=130, y=420)
+
+                def cl_rps():
+                    global gh3
+                    gh3.destroy()
+                    how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
+                    how_play.place(x=494, y=865)
+
+                how_play = tk.Button(gn, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"), relief="flat",
+                                     activebackground=abg, padx=20, command=guide_rps)
+                how_play.place(x=494, y=865)
                 del_alf.place(x=980,y=535)
                 error_lbl = (tk.Label(gn,bg=bagr,font=("arial", 25, "bold"),fg=red,))
                 error_lbl.place(x=351,y=686)
@@ -1403,8 +1604,10 @@ def menu_1():   #основная функция
                 gn.bind('<Escape>', back_gn)
 
                 def stat_gn():
+                    sound_keyboard.play()
                     global ajk
                     def ba():
+                        sound_keyboard.play()
                         ajk.destroy()
                         stat.configure(command=stat_gn)
                     def upd():
@@ -1434,8 +1637,6 @@ def menu_1():   #основная функция
                                  height=80, bg=bagr, command=stat_gn, compound='top', text='СТАТИСТИКА',
                                  font=('arial', 10, 'bold'))
                 stat.place(x=1100, y=5)
-
-
                 gn.pack()
 
 
@@ -1580,8 +1781,25 @@ def menu_1():   #основная функция
                 tk.Label(mem,text="ПОВТОРИ ЗА МНОЙ",bg=bagr,font=("Arial", 60, "bold")).place(x=200,y=10)
                 tk.Button(mem, image=imag, bg=bagr, command=back_memory, activebackground=bagr,
                                         relief="flat", width=60, height=50,).place(x=20,y=20)
-                tk.Button(mem,text="ИГРАТЬ",font=("Arial",60,"bold"),bg=bbg,activebackground=abg,command=play_3,
-                        relief="flat").place(x=404,y=700)
+                tk.Button(mem,text="ИГРАТЬ",font=("Arial",60,"bold"),bg=bbg,activebackground=abg,command=play_3,relief="flat").place(x=404,y=690)
+                def guide_rps():
+                    global gh3
+                    how_play.configure(text="СКРЫТЬ", command=cl_rps)
+                    how_play.place(x=520, y=860)
+                    gh3 = tk.Label(mem, bg=bbg,
+                                   text="КАК ИГРАТЬ В ПОВТОРИ ЗА МНОЙ?\nПОСЛЕ ТОГО, КАК ВЫ НАЖМЕТЕ КНОПКУ 'ИГРАТЬ',\nВАМ НУЖНО БУДЕТ ЗАПОМНИТЬ ПОСЛЕДОВАТЕЛЬНОСТЬ ЦИФР И ФИГУР,\nКОТОРЫЕ БУДУТ ПОДСВЕЧИВАТЬСЯ ЖЕЛТЫМ,\nА ПОСЛЕ ЭТОГО НАЖАТЬ В ТОЙ ЖЕ ПОСЛЕДОВАТЕЛЬНОСТИ НА ЦИФРЫ И ФИГУРЫ,\nЗАТЕМ К ДАННОЙ КОМБИНАЦИИ ДОБАВИТСЯ ЕЩЕ 1 ЭЛЕМЕНТ\nИ ИГРА ПОВТОРИТСЯ С БОЛЕЕ ДЛИННОЙ КОМБИНАЦИЕЙ.\nИГРА ИДЕТ ДО ТЕХ ПОР, ПОКА ВЫ НЕ ОШИБЕТЕСЬ."
+                                   , justify="center", font=("arial", 17, "bold"), pady=6,padx=43)
+                    gh3.place(x=58, y=417)
+
+                def cl_rps():
+                    global gh3
+                    gh3.destroy()
+                    how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
+                    how_play.place(x=492, y=860)
+
+                how_play = tk.Button(mem, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"), relief="flat",
+                                     activebackground=abg, padx=20, command=guide_rps)
+                how_play.place(x=492, y=865)
                 t = tk.Label(mem,image = tri,bg=bagr).place(x=32,y=130)
                 q = tk.Label(mem, image=qwad, bg=bagr).place(x=314, y=130)
                 c = tk.Label(mem, image=cir, bg=bagr).place(x=614, y=130)
@@ -1596,8 +1814,10 @@ def menu_1():   #основная функция
 
 
                 def stat_mem():
+                    sound_keyboard.play()
                     global ajk
                     def ba():
+                        sound_keyboard.play()
                         ajk.destroy()
                         stat.configure(command=stat_mem)
                     def upd():
@@ -1740,7 +1960,7 @@ def menu_1():   #основная функция
                             data['sololoses'] += 1
                             dd.configure(text=f"ПРОИГРЫШЬ({gh})")
                             dd.place(x=220,y=10)
-                        data['b_count'] += gh
+                        data['bing_count'] += gh
                         chet.destroy()
 
                     global stop, ds
@@ -1856,16 +2076,37 @@ def menu_1():   #основная функция
             bing.focus_set()
             bing.bind("<Escape>", back_play_5)
 
+            def guide_rps():
+                global gh3
+                how_play.configure(text="СКРЫТЬ", command=cl_rps)
+                how_play.place(x=10, y=846)
+                gh3 = tk.Label(bing, bg=bbg,
+                               text="КАК ИГРАТЬ В БИНГО?\nПОСЛЕ ТОГО, КАК ВЫ НАЖМЕТЕ КНОПКУ 'ИГРАТЬ',\nВАМ НУЖНО БУДЕТ СЛЕДИТЬ ЗА ЦИФРАМИ СВЕРХУ,\nКОТОРЫЕ БУДУТ ПОЯВЛЯТЬСЯ 1 РАЗ,\nЕСЛИ ЧИСЛО СВЕРХУ СОВПАДАЕТ С ЧИСЛОМ НА ПОЛЕ ИГРЫ,\nНАЖМИТЕ НА ЭТО ЧИСЛО НА ПОЛЕ\nИ ОНО СТАНЕТ ЗЕЛЕНЫМ.\nИГРА ИДЕТ ДО ТЕХ ПОР, ПОКА ВЫ НЕ НААЖМЕТЕ НА ГАЛОЧКУ,\n ПОСЛЕ ЭТОГО ПОДСЧИТАЮТСЯ ОЧКИ(ПРОПУЩЕННОЕ ЧИСЛО -150, ПАУЗА -25, ВЕРНОЕ ЧИСЛО +100)\nЕСЛИ ВСЕ ЧИСЛА БЫЛИ ПОКАЗАНЫ, ТО СЧЕТ ДЕЛИТСЯ НА 5"
+                               , justify="center", font=("arial", 16, "bold"),pady=5)
+                gh3.place(x=58, y=246)
+
+            def cl_rps():
+                global gh3
+                gh3.destroy()
+                how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
+                how_play.place(x=10, y=846)
+
+            how_play = tk.Button(bing, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"), relief="flat",
+                                 activebackground=abg, padx=20, command=guide_rps)
+            how_play.place(x=10, y=846)
+
             def stat_b():
+                sound_keyboard.play()
                 def ba():
+                    sound_keyboard.play()
                     ab.destroy()
                     stat.configure(command=stat_b)
 
-                def upd():
+                def upd11():
                     try:
-                        yt.configure(text=f"ОБЩИЙ СЧЕТ: {data['b_count']}")
+                        yt.configure(text=f"ОБЩИЙ СЧЕТ: {data['bing_count']}")
                         t.configure(text=f"В ИГРЕ: {time(data['b_time'])}")
-                        window.after(10, upd)
+                        window.after(100, upd11)
                     except:
                         return
 
@@ -1873,14 +2114,13 @@ def menu_1():   #основная функция
                 ab.place(x=699, y=508)
                 tk.Label(ab, bg=bbg, text="СТАТИСТИКА", font=("arial", 35, "bold")).place(x=38, y=-2)
                 tk.Label(ab, bg=bbg, text=f"СЫГРАНО: {data["b_games"]}", font=("arial", 25, "bold")).place(x=0, y=55)
-                yt = tk.Label(ab, bg=bbg, text=f"ОБЩИЙ СЧЕТ: {data['b_count']}",
+                yt = tk.Label(ab, bg=bbg, text=f"ОБЩИЙ СЧЕТ: {data['bing_count']}",
                               font=("arial", 25, "bold"))
                 yt.place(x=0, y=95)
                 t = tk.Label(ab, bg=bbg, text=f"В ИГРЕ: {time(data['b_time'])}", font=("arial", 25, "bold"))
                 t.place(x=0, y=135)
-                window.after(10, upd)
+                window.after(10, upd11)
                 stat.configure(command=ba)
-
             stat = tk.Button(bing, image=stat_im, relief='flat', activebackground=bagr, width=85,
                              height=80, bg=bagr, command=stat_b, compound='top', text='СТАТИСТИКА',
                              font=('arial', 10, 'bold'))
@@ -2303,10 +2543,29 @@ def menu_1():   #основная функция
                     slo()
             vi.bind("<Return>", entrr)
             vi.bind('<Escape>',back_vis2)
+            def guide_rps():
+                global gh3
+                how_play.configure(text="СКРЫТЬ", command=cl_rps)
+                how_play.place(x=520, y=590)
+                gh3 = tk.Label(vi, bg=bbg,
+                               text="КАК ИГРАТЬ В ВИСЕЛИЦУ ДЛЯ 2?\nСНАЧАЛА ИГРОК 1 ДОЛЖЕН ЗАГАДАТЬ СЛОВО И УСТАНОВИТЬ КОЛ-ВО ПОПЫТОК ДЛЯ ИГРОКА 2,\nЗАТЕМ ИГРОК 2 СЫГРАЕТ В ОБЫЧНУЮ ВИСЕЛИЦУ, НО СО СЛОВОМ, ЗАГАДАННЫМ ИГРОКОМ 1."
+                               , justify="center", font=("arial", 18, "bold"),pady=5)
+                gh3.place(x=5, y=246)
 
+            def cl_rps():
+                global gh3
+                gh3.destroy()
+                how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
+                how_play.place(x=492, y=590)
+
+            how_play = tk.Button(vi, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"), relief="flat",
+                                 activebackground=abg, padx=20, command=guide_rps)
+            how_play.place(x=492, y=590)
             def stat_vis2():
                 global ba12
+                sound_keyboard.play()
                 def ba12():
+                    sound_keyboard.play()
                     ab3.destroy()
                     stat.configure(command=stat_vis2)
 
@@ -2415,6 +2674,8 @@ def menu_1():   #основная функция
                         globals()[chr(1062 + i)].configure(state="disabled")
                     globals()["del"].configure(state="disabled")
                     inpt.configure(state="disabled", bg=bbg)
+                    sl.focus_set()
+                    sl.bind('<Escape>', back_slova)
                     return
                 letter = word[-1]
                 if letter in "ьЬъыЪЫ":
@@ -2482,6 +2743,8 @@ def menu_1():   #основная функция
                             globals()[chr(1062 + i)].configure(state="disabled")
                         globals()["del"].configure(state="disabled")
                         inpt.configure(state="disabled", bg=bbg)
+                        sl.focus_set()
+                        sl.bind('<Escape>', back_slova)
                         return
                 except:None
                 letter = word[-1]
@@ -2606,9 +2869,28 @@ def menu_1():   #основная функция
             inpt.place(x=5,y=379)
             inpt.focus_set()
             inpt.bind('<Escape>',back_slova)
+            def guide_rps():
+                global gh3
+                how_play.configure(text="СКРЫТЬ", command=cl_rps)
+                how_play.place(x=810, y=847)
+                gh3 = tk.Label(sl, bg=bbg,
+                               text="КАК ИГРАТЬ В ВИСЕЛИЦУ ДЛЯ 2?\nСНАЧАЛА ИГРОК 1 ДОЛЖЕН ЗАГАДАТЬ СЛОВО И УСТАНОВИТЬ КОЛ-ВО ПОПЫТОК ДЛЯ ИГРОКА 2,\nЗАТЕМ ИГРОК 2 СЫГРАЕТ В ОБЫЧНУЮ ВИСЕЛИЦУ, НО СО СЛОВОМ, ЗАГАДАННЫМ ИГРОКОМ 1."
+                               , justify="center", font=("arial", 18, "bold"),pady=5)
+                gh3.place(x=5, y=246)
 
+            def cl_rps():
+                global gh3
+                gh3.destroy()
+                how_play.configure(text="КАК ИГРАТЬ?", command=guide_rps)
+                how_play.place(x=810, y=847)
+
+            how_play = tk.Button(sl, text="КАК ИГРАТЬ?", bg=bbg, fg=tex, font=("arial", 17, "bold"), relief="flat",
+                                 activebackground=abg, command=guide_rps)
+            how_play.place(x=810, y=847)
             def stat_sl():
+                sound_keyboard.play()
                 def ba():
+                    sound_keyboard.play()
                     ab.destroy()
                     stat.configure(command=stat_sl)
 
@@ -2662,7 +2944,7 @@ def menu_1():   #основная функция
     #тело фунции меню
     menu = tk.Frame(window)
     menu["bg"] = bagr
-    menutext = tk.Label(menu, bg=bagr, fg=tex, text="МЕНЮ", font=("arial", 100, "bold"), anchor="n",padx = 400,pady=50).pack()
+    menutext = tk.Label(menu, bg=bagr, fg=tex, text="МЕНЮ", font=("arial", 100, "bold"), anchor="n",padx = 400,pady=45).pack()
     solo_btn = tk.Button(menu, text="ОДИНОЧНАЯ ИГРА", bg=bbg, fg=tex, font=("arial", 50, "bold"),pady= 10,
                          activebackground=abg, command=solo,padx = 22,relief = "flat"
                          ).pack()
@@ -2689,11 +2971,14 @@ def menu_1():   #основная функция
                 if data["new"] != "True":
                     a = Achievement(data["timeCount"], "ПРОВЕСТИ В ИГРЕ", 27, 120, data["time_in_game"])
                     b = Achievement(data["openCount"], "ЗАЙТИ В ИГРУ", 427, 120, data["open_in_game"])
-                    с = Achievement(data["gamesCount"], "СЫГРАНО ВО ВСЕ ИГРЫ", 827, 120, data["games_in_game"])
+                    с = Achievement(data["gamesCount"], "ЗАЙТИ В ЛЮБУЮ ИГРУ", 827, 120, data["games_in_game"])
                     d = Achievement(data["visCount"], f"ОДЕРЖАТЬ {data["vis_wins_с"]} ПОБЕД", 27, 280, "В ВИСИЛИЦЕ")
                     i = Achievement(data["rpsCount"], f"ОДЕРЖАТЬ {data["rps_wins_с"]} ПОБЕД", 427, 280,"В КАМ., НОЖН., БУМ.")
                     f = Achievement(data["gnCount"], f"ОДЕРЖАТЬ {data["gn_wins_c"]} ПОБЕД", 827, 280, "В УГАДАЙ ЧИСЛО")
-                    g = Achievement(data["memCount"], f"ДОСТИГНИ КОМБО {data["mem_wins_c"]}", 227, 440, "В ПОВТОРИ ЗА МНОЙ")
+                    g = Achievement(data["memCount"], f"ДОСТИГНУТЬ КОМБО {data["mem_wins_c"]}", 227, 440, "В ПОВТОРИ ЗА МНОЙ")
+                    k = Achievement(data["bingCount"], f"ДОСТИГНУТЬ СЧЕТА {data["bing_wins_c"]}", 627, 440, "В БИНГО")
+                    l = Achievement(data["vis2Count"], f"ОДЕРЖАТЬ {data["vis2_wins_с"]}", 227, 600, "В ВИСИЛИЦЕ ДЛЯ 2")
+                    max = Achievement("MAX max MAX", f"{data["maxt1"]}", 427, 760, f"{data["maxt2"]}")
                     data["new"] = "True"
                 window.after(50,upd)
             except: return
@@ -2705,11 +2990,15 @@ def menu_1():   #основная функция
         ach_f.pack()
         a = Achievement(data["timeCount"], "ПРОВЕСТИ В ИГРЕ", 27, 120, data["time_in_game"])
         b = Achievement(data["openCount"], "ЗАЙТИ В ИГРУ", 427, 120, data["open_in_game"])
-        с = Achievement(data["gamesCount"], "СЫГРАНО ВО ВСЕ ИГРЫ", 827, 120, data["games_in_game"])
+        с = Achievement(data["gamesCount"], "ЗАЙТИ В ЛЮБУЮ ИГРУ", 827, 120, data["games_in_game"])
         d = Achievement(data["visCount"], f"ОДЕРЖАТЬ {data["vis_wins_с"]} ПОБЕД", 27, 280, "В ВИСИЛИЦЕ")
         i = Achievement(data["rpsCount"], f"ОДЕРЖАТЬ {data["rps_wins_с"]} ПОБЕД", 427, 280, "В КАМ., НОЖН., БУМ.")
         f = Achievement(data["gnCount"], f"ОДЕРЖАТЬ {data["gn_wins_c"]} ПОБЕД", 827, 280, "В УГАДАЙ ЧИСЛО")
-        g = Achievement(data["memCount"], f"ДОСТИГНИ КОМБО {data["mem_wins_c"]}", 227, 440, "В ПОВТОРИ ЗА МНОЙ")
+        g = Achievement(data["memCount"], f"ДОСТИГНУТЬ КОМБО {data["mem_wins_c"]}", 227, 440, "В ПОВТОРИ ЗА МНОЙ")
+        k = Achievement(data["bingCount"], f"ДОСТИГНУТЬ СЧЕТА {data["bing_wins_c"]}", 627, 440, "В БИНГО")
+        l = Achievement(data["vis2Count"], f"ОДЕРЖАТЬ {data["vis2_wins_с"]}", 227, 600, "В ВИСИЛИЦЕ ДЛЯ 2")
+        m = Achievement(data["slCount"], f"ДОСТИГНУТЬ СЧЕТА {data["sl_wins_c"]}", 627, 600, "В СЛОВАХ")
+        max = Achievement("MAX max MAX", f"{data["maxt1"]}", 427, 760, f"{data["maxt2"]}")
         window.after(10,upd)
         ach_f.bind("<Escape>",back)
         ach_f.focus_set()
@@ -2734,6 +3023,7 @@ def menu_1():   #основная функция
             a.destroy()
             mul = tk.Frame(window,bg=bagr,width=1200,height=900)
             def back1(g="g"):
+                sound_back.play()
                 mul.destroy()
                 st()
             f = tk.Button(mul, image=imag, bg=bagr, command=back1, activebackground=bagr, relief='flat', width=60, height=50).place(x=20, y=20)
@@ -2770,6 +3060,7 @@ def menu_1():   #основная функция
             sol = tk.Frame(window,bg=bagr,width=1200,height=900)
             def back(g="g"):
                 sol.destroy()
+                sound_back.play()
                 st()
             f = tk.Button(sol, image=imag, bg=bagr, command=back, activebackground=bagr, relief='flat', width=60, height=50).place(x=20, y=20)
             tk.Label(sol, text='СТАТИСТИКА ПО ИГРАМ', font=('arial', 60, 'bold'), bg=bbg).place(x=108, y=0)
@@ -2793,7 +3084,7 @@ def menu_1():   #основная функция
             ab2 = tk.Frame(sol, bg=bbg, height=220, width=535)
             ab2.place(x=6, y=675)
             tk.Label(ab2, bg=bbg, text=f"СЫГРАНО: {data["b_games"]}", font=("arial", 25, "bold")).place(x=0, y=42)
-            tk.Label(ab2, bg=bbg, text=f"ОБЩИЙ СЧЕТ: {data['b_count']}",font=("arial", 25, "bold")).place(x=0, y=0)
+            tk.Label(ab2, bg=bbg, text=f"ОБЩИЙ СЧЕТ: {data['bing_count']}",font=("arial", 25, "bold")).place(x=0, y=0)
             tk.Label(ab2, bg=bbg, text=f"В ИГРЕ: {time(data['b_time'])}", font=("arial", 25, "bold")).place(x=0, y=84)
             lk5 = tk.Frame(sol,bg=abg,width=315,height=2)
             lk5.place(x=6,y=673)
