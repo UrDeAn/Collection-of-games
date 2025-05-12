@@ -7,7 +7,8 @@ import time
 import json
 
 
-global BACK,xx,data,volume,f,now,s,ss
+global BACK,xx,data,volume,f,now,s,ss,solo_Time
+solo_Time = True
 BACK = False
 now = 0
 volume = True
@@ -162,7 +163,7 @@ class Achievement:
         g.place(x=x, y=y)
         ll.place(x=65, y=0)
 def chec():
-    def achive(main, text, text2 = ""):
+    def achive(main, text, text2 = "",g123=True):
         sound_ach.play()
         def dell(ach):
             ach.destroy()
@@ -185,8 +186,11 @@ def chec():
         pp12.bind("<FocusIn>",ll12)
         pp12.place(x=0,y=58)
         tk.Frame(ll,bg=bbg,width=345,height=3).place(x=0,y=30)
-        g.place(x=853,y=808)
         ll.place(x=65,y=0)
+        if g123:
+            g.place(x=853,y=808)
+        else:
+            g.place(x=1253,y=808)
         def up(g, t=6000, n=10):
             try:
                 g.lift()
@@ -497,36 +501,36 @@ def chec():
             data["bing_wins_c"] = "100000"
             data["new"] = "False"
 
-        if data['vis2_wins'] >= 5:
-            if data["5vis2_wins"] != "True":
+    if data['vis2_wins'] >= 5:
+        if data["5vis2_wins"] != "True":
                 achive('ВИСЕЛИЦА ДЛЯ 2 1', 'ОДЕРЖАТЬ 5 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
                 data["5vis2_wins"] = "True"
                 data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 1"
                 data["vis2_wins_с"] = "5 ПОБЕД"
                 data["new"] = "False"
-        if data['vis2_wins'] >= 10:
-            if data["10vis2_wins"] != "True":
+    if data['vis2_wins'] >= 10:
+        if data["10vis2_wins"] != "True":
                 achive('ВИСЕЛИЦА ДЛЯ 2 2', 'ОДЕРЖАТЬ 10 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
                 data["10vis2_wins"] = "True"
                 data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 2"
                 data["vis2_wins_с"] = "10 ПОБЕД"
                 data["new"] = "False"
-        if data['vis2_wins'] >= 25:
-            if data["25vis2_wins"] != "True":
+    if data['vis2_wins'] >= 25:
+        if data["25vis2_wins"] != "True":
                 achive('ВИСЕЛИЦА ДЛЯ 2 3', 'ОДЕРЖАТЬ 25 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
                 data["25vis2_wins"] = "True"
                 data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 3"
                 data["vis2_wins_с"] = "25 ПОБЕД"
                 data["new"] = "False"
-        if data['vis2_wins'] >= 50:
-            if data["50vis2_wins"] != "True":
+    if data['vis2_wins'] >= 50:
+        if data["50vis2_wins"] != "True":
                 achive('ВИСЕЛИЦА ДЛЯ 2 4', 'ОДЕРЖАТЬ 50 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
                 data["50vis2_wins"] = "True"
                 data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 4"
                 data["vis2_wins_с"] = "50 ПОБЕД"
                 data["new"] = "False"
-        if data['vis2_wins'] >= 100:
-            if data["100vis2_wins"] != "True":
+    if data['vis2_wins'] >= 100:
+        if data["100vis2_wins"] != "True":
                 achive('ВИСЕЛИЦА ДЛЯ 2 max', 'ОДЕРЖАТЬ 100 ПОБЕД', "В ВИСИЛИЦЕ ДЛЯ 2")
                 data["100vis2_wins"] = "True"
                 data["vis2Count"] = "ВИСИЛИЦА ДЛЯ 2 max"
@@ -535,37 +539,37 @@ def chec():
 
 
 
-        if (data['sl_count1']+data['sl_count2']) >= 10:
-            if data["10sl_wins"] != "True":
-                achive('СЛОВА 1', 'ДОСТИГНУТЬ СЧЕТА 10', "В СЛОВАХ")
+    if (data['sl_count1']+data['sl_count2']) >= 10:
+        if data["10sl_wins"] != "True":
+                achive('СЛОВА 1', 'ДОСТИГНУТЬ СЧЕТА 10', "В СЛОВАХ",False)
                 data["10sl_wins"] = "True"
                 data["slCount"] = "СЛОВА 1"
                 data["sl_wins_c"] = "10"
                 data["new"] = "False"
-        if (data['sl_count1']+data['sl_count2']) >= 20:
-            if data["20sl_wins"] != "True":
-                achive('СЛОВА 2', 'ДОСТИГНУТЬ СЧЕТА 20', "В СЛОВАХ")
+    if (data['sl_count1']+data['sl_count2']) >= 20:
+        if data["20sl_wins"] != "True":
+                achive('СЛОВА 2', 'ДОСТИГНУТЬ СЧЕТА 20', "В СЛОВАХ",False)
                 data["20sl_wins"] = "True"
                 data["slCount"] = "СЛОВА 2"
                 data["sl_wins_c"] = "20"
                 data["new"] = "False"
-        if (data['sl_count1']+data['sl_count2']) >= 50:
-            if data["50sl_wins"] != "True":
-                achive('СЛОВА 3', 'ДОСТИГНУТЬ СЧЕТА 50', "В СЛОВАХ")
+    if (data['sl_count1']+data['sl_count2']) >= 50:
+        if data["50sl_wins"] != "True":
+                achive('СЛОВА 3', 'ДОСТИГНУТЬ СЧЕТА 50', "В СЛОВАХ",False)
                 data["50sl_wins"] = "True"
                 data["slCount"] = "СЛОВА 3"
                 data["sl_wins_c"] = "50"
                 data["new"] = "False"
-        if (data['sl_count1']+data['sl_count2']) >= 100:
-            if data["100sl_wins"] != "True":
-                achive('СЛОВА 4', 'ДОСТИГНУТЬ СЧЕТА 100', "В СЛОВАХ")
+    if (data['sl_count1']+data['sl_count2']) >= 100:
+        if data["100sl_wins"] != "True":
+                achive('СЛОВА 4', 'ДОСТИГНУТЬ СЧЕТА 100', "В СЛОВАХ",False)
                 data["100sl_wins"] = "True"
                 data["slCount"] = "СЛОВА 4"
                 data["sl_wins_c"] = "100"
                 data["new"] = "False"
-        if (data['sl_count1']+data['sl_count2']) >= 200:
-            if data["200sl_wins"] != "True":
-                achive('СЛОВА max', 'ДОСТИГНУТЬ СЧЕТА 200', "В СЛОВАХ")
+    if (data['sl_count1']+data['sl_count2']) >= 200:
+        if data["200sl_wins"] != "True":
+                achive('СЛОВА max', 'ДОСТИГНУТЬ СЧЕТА 200', "В СЛОВАХ",False)
                 data["200sl_wins"] = "True"
                 data["slCount"] = "СЛОВА max"
                 data["sl_wins_c"] = "200"
@@ -597,7 +601,9 @@ window.after(1000, track_time)
 
 
 def menu_1():   #основная функция
-    global BACK
+    global BACK, solo_Time,multy_time
+    solo_Time = True
+    multy_time = True
     if BACK:
         sound_back.play()
         BACK = False
@@ -612,7 +618,8 @@ def menu_1():   #основная функция
                 data['solotime'] += 1
             else: return
             window.after(1000, solo_track_time)
-        solo_track_time()
+        if solo_Time:
+            solo_track_time()
         global BACK,t
         t = True
         if BACK:
@@ -706,7 +713,8 @@ def menu_1():   #основная функция
                          "ПРОТОКОЛ", "ПРИВЫЧКА", "ПАССАЖИР", "СТАНДАРТ", "КРИТЕРИЙ", "КАРАНДАШ", "РАЗВЕДКА", "ТРАГЕДИЯ"]
             def set_diff_visilica(): # выбор сложности
                 def back_1(g="g"):
-                    global BACK
+                    global BACK, solo_Time
+                    solo_Time = False
                     BACK = True
                     diff_menu.destroy()
                     solo()
@@ -786,7 +794,8 @@ def menu_1():   #основная функция
                     def back_vic(g="g"):
                         global vis_t
                         vis_t = False
-                        global BACK
+                        global BACK, solo_Time
+                        solo_Time = False
                         BACK = True
                         game_vis.destroy()
                         solo()
@@ -1029,7 +1038,8 @@ def menu_1():   #основная функция
             def back_RPS(g="g"):
                 global rps_t
                 rps_t = False
-                global BACK
+                global BACK, solo_Time
+                solo_Time = False
                 BACK = True
                 rps.destroy()
                 solo()
@@ -1148,7 +1158,8 @@ def menu_1():   #основная функция
                 gn.destroy()
                 guess_number()
             def back_1(g="g"):
-                global BACK
+                global BACK, solo_Time
+                solo_Time = False
                 BACK = True
                 diff_menu.destroy()
                 solo()
@@ -1221,7 +1232,8 @@ def menu_1():   #основная функция
                 def back_gn(g="g"):
                     global gn_t
                     gn_t = False
-                    global BACK
+                    global BACK, solo_Time
+                    solo_Time = False
                     BACK = True
                     gn.destroy()
                     solo()
@@ -1531,7 +1543,8 @@ def menu_1():   #основная функция
                                                      activebackground=abg, font=("arial", 45, "bold"), bg=bbg).place(x=192,y=720)
 
                         def back_gn():
-                            global BACK
+                            global BACK, solo_Time
+                            solo_Time = False
                             BACK = True
                             gn.destroy()
                             solo()
@@ -1750,7 +1763,8 @@ def menu_1():   #основная функция
                     def back_play_3(g="g"):
                         global fi
                         fi = False
-                        global BACK
+                        global BACK, solo_Time
+                        solo_Time = False
                         BACK = True
                         pl3.destroy()
                         menu_mem()
@@ -1795,7 +1809,8 @@ def menu_1():   #основная функция
                 def back_memory(g="g"):
                     global h
                     h = False
-                    global BACK
+                    global BACK, solo_Time
+                    solo_Time = False
                     BACK = True
                     mem.destroy()
                     solo()
@@ -1932,7 +1947,8 @@ def menu_1():   #основная функция
                 flf.place(x=1050,y=772)
 
                 def back_play_76(g="g"):
-                    global BACK
+                    global BACK, solo_Time
+                    solo_Time = False
                     BACK = True
                     global stop
                     stop = True
@@ -2089,7 +2105,8 @@ def menu_1():   #основная функция
             def back_play_5(g="g"):
                 global b_t
                 b_t = False
-                global BACK
+                global BACK, solo_Time
+                solo_Time = False
                 BACK = True
                 bing.destroy()
                 solo()
@@ -2121,7 +2138,7 @@ def menu_1():   #основная функция
                 how_play.configure(text="СКРЫТЬ", command=cl_rps)
                 how_play.place(x=10, y=846)
                 gh3 = tk.Label(bing, bg=bbg,
-                               text="КАК ИГРАТЬ В БИНГО?\nПОСЛЕ ТОГО, КАК ВЫ НАЖМЕТЕ КНОПКУ 'ИГРАТЬ',\nВАМ НУЖНО БУДЕТ СЛЕДИТЬ ЗА ЦИФРАМИ СВЕРХУ,\nКОТОРЫЕ БУДУТ ПОЯВЛЯТЬСЯ 1 РАЗ,\nЕСЛИ ЧИСЛО СВЕРХУ СОВПАДАЕТ С ЧИСЛОМ НА ПОЛЕ ИГРЫ,\nНАЖМИТЕ НА ЭТО ЧИСЛО НА ПОЛЕ\nИ ОНО СТАНЕТ ЗЕЛЕНЫМ.\nИГРА ИДЕТ ДО ТЕХ ПОР, ПОКА ВЫ НЕ НААЖМЕТЕ НА ГАЛОЧКУ,\n ПОСЛЕ ЭТОГО ПОДСЧИТАЮТСЯ ОЧКИ(ПРОПУЩЕННОЕ ЧИСЛО -150, ПАУЗА -25, ВЕРНОЕ ЧИСЛО +100)\nЕСЛИ ВСЕ ЧИСЛА БЫЛИ ПОКАЗАНЫ, ТО СЧЕТ ДЕЛИТСЯ НА 5"
+                               text="КАК ИГРАТЬ В БИНГО?\nПОСЛЕ ТОГО, КАК ВЫ НАЖМЕТЕ КНОПКУ 'ИГРАТЬ',\nВАМ НУЖНО БУДЕТ СЛЕДИТЬ ЗА ЦИФРАМИ СВЕРХУ,\nКОТОРЫЕ БУДУТ ПОЯВЛЯТЬСЯ 1 РАЗ,\nЕСЛИ ЧИСЛО СВЕРХУ СОВПАДАЕТ С ЧИСЛОМ НА ПОЛЕ ИГРЫ,\nНАЖМИТЕ НА ЭТО ЧИСЛО НА ПОЛЕ\nИ ОНО СТАНЕТ ЗЕЛЕНЫМ.\nИГРА ИДЕТ ДО ТЕХ ПОР, ПОКА ВЫ НЕ НААЖМЕТЕ НА ГАЛОЧКУ,\n ПОСЛЕ ЭТОГО ПОДСЧИТАЮТСЯ ОЧКИ(ПРОПУЩЕННОЕ ЧИСЛО -150, ПАУЗА -25, ВЕРНОЕ ЧИСЛО +100)\nЕСЛИ ВСЕ ЧИСЛА БЫЛИ ПОКАЗАНЫ, ТО СЧЕТ ДЕЛИТСЯ НА 2"
                                , justify="center", font=("arial", 16, "bold"),pady=5)
                 gh3.place(x=58, y=246)
 
@@ -2191,15 +2208,15 @@ def menu_1():   #основная функция
 
 
     def multy_menu():
-        global ss
+        global BACK, multy_time,ss
         ss = True
-
         def mu_track_time():
             if ss:
                 data['multytime'] += 1
             else: return
             window.after(1000, mu_track_time)
-        mu_track_time()
+        if multy_time:
+            mu_track_time()
         global BACK
         if BACK:
             sound_back.play()
@@ -2210,6 +2227,8 @@ def menu_1():   #основная функция
 
         def back(g="f"):
             global ss
+            global multy_time
+            multy_time = False
             ss = False
             #фунця возврата в меню
             global BACK
@@ -2291,6 +2310,8 @@ def menu_1():   #основная функция
                 def back_vic2(g="g"):
                     global vis2_t
                     vis2_t = False
+                    global multy_time
+                    multy_time = False
                     global BACK
                     BACK = True
                     game_vis.destroy()
@@ -2555,6 +2576,8 @@ def menu_1():   #основная функция
 
             def back_vis2(g="g"):
                 global vis2_t
+                global multy_time
+                multy_time = False
                 vis2_t = False
                 global BACK
                 BACK = True
@@ -2730,6 +2753,8 @@ def menu_1():   #основная функция
                     zano = tk.Button(sl, command=zan, bg=bbg, activebackground=abg, relief="flat",font=("arial", 40, "bold"), text="ЗАНОВО").place(x=115, y=520)
                     ba = tk.Button(sl, command=back_slova, bg=bbg, activebackground=abg, relief="flat",font=("arial", 40, "bold"), text="НАЗАД",padx=24).place(x=405, y=520)
                     fake = tk.Label(sl, pady=56, padx=390, bg=bbg).place(x=5, y=379)
+                    global sl_t
+                    sl_t = False
                     sl.focus_set()
                     inpt_btn.configure(command="")
                     for i in range(11):
@@ -2763,7 +2788,7 @@ def menu_1():   #основная функция
                 tr = tk.Label(sl, bd=0, image=triu)
                 tr.place(x=807, y=75)
                 inpt.bind("<Return>","")
-                slovo = tk.Label(bg=bbg,text=f"({word})\nСЛОВО НА БУКВУ {letter}",font=("arial", 55, "bold"),justify="center")
+                slovo = tk.Label(sl,bg=bbg,text=f"({word})\nСЛОВО НА БУКВУ {letter}",font=("arial", 55, "bold"),justify="center")
                 inpt_btn.configure(command=player2)
                 slovo.place(x=838,y=198)
                 word = letter
@@ -2812,6 +2837,8 @@ def menu_1():   #основная функция
                         inpt.configure(state="disabled", bg=bbg)
                         sl.focus_set()
                         sl.bind('<Escape>', back_slova)
+                        global sl_t
+                        sl_t = False
                         return
                 except:None
                 letter = word[-1]
@@ -2834,7 +2861,7 @@ def menu_1():   #основная функция
                 tr.destroy()
                 tr = tk.Label(sl,bd=0,image=triu1)
                 tr.place(x=749,y=75)
-                slovo = tk.Label(bg=bbg,text=f"({word})\nСЛОВО НА БУКВУ {letter}",font=("arial", 55, "bold"),justify="center")
+                slovo = tk.Label(sl,bg=bbg,text=f"({word})\nСЛОВО НА БУКВУ {letter}",font=("arial", 55, "bold"),justify="center")
                 slovo.place(x=30,y=198)
                 word = ""
                 fir = True
@@ -2845,6 +2872,8 @@ def menu_1():   #основная функция
             inpt_btn.place(x=1014,y=785)
 
             def back_slova(g="g"):
+                global multy_time
+                multy_time = False
                 global sl_t
                 sl_t = False
                 global BACK
@@ -2944,7 +2973,7 @@ def menu_1():   #основная функция
                 how_play.configure(text="СКРЫТЬ", command=cl_rps)
                 how_play.place(x=810, y=847)
                 gh3 = tk.Label(sl, bg=bbg,
-                               text="КАК ИГРАТЬ В СЛОВА?\nСНАЧАЛА ИГРОК 1 ДОЛЖЕН ЗАГАДАТЬ ВВЕСТИ ЛЮБОЕ СЛОВО,\nЗАТЕМ ИГРОК 2 ДОЛЖЕН ВВЕСТИ СЛОВО, НАЧИНАЮЩЕЕСЯ НА ПОСЛЕДНЮЮ БУКВУ СЛОВА ИГРОКА 1(ЕСЛИ БУКВА НЕ Ь, Ъ, Ы)\n ПОСЛЕ ЧЕГО ИГРОК 1 ДОЛЖЕН ТОЖЕ САМОЕ.\nИГРА ИДЕТ ДО ТЕХ ПОР,\n ПОКА ОДИН ИЗ ИГРОКОВ НЕ ВВЕДЕТ ПОВТОРЯЮЩЕЕСЯ СЛОВО ИЛИ СЛОВО НЕ НА ПОСЛЕДНЮЮ БУКВУ ПРЕДЫДУЩЕГО."
+                               text="КАК ИГРАТЬ В СЛОВА?\nСНАЧАЛА ИГРОК 1 ДОЛЖЕН ВВЕСТИ ЛЮБОЕ СЛОВО,\nЗАТЕМ ИГРОК 2 ДОЛЖЕН ВВЕСТИ СЛОВО, НАЧИНАЮЩЕЕСЯ НА ПОСЛЕДНЮЮ БУКВУ СЛОВА ИГРОКА 1(ЕСЛИ БУКВА НЕ Ь, Ъ, Ы)\n ПОСЛЕ ЧЕГО ИГРОК 1 ДОЛЖЕН ТОЖЕ САМОЕ.\nИГРА ИДЕТ ДО ТЕХ ПОР,\n ПОКА ОДИН ИЗ ИГРОКОВ НЕ ВВЕДЕТ ПОВТОРЯЮЩЕЕСЯ СЛОВО ИЛИ СЛОВО НЕ НА ПОСЛЕДНЮЮ БУКВУ ПРЕДЫДУЩЕГО."
                                , justify="center", font=("arial", 18, "bold"),pady=5)
                 gh3.place(x=16, y=186)
 
