@@ -3325,5 +3325,9 @@ def menu_1():   #основная функция
     else: off()
     menu.pack()
 
+
+
+
+
 menu_1()
 window.mainloop()
