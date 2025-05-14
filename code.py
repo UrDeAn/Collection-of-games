@@ -2237,9 +2237,9 @@ def menu_1():   #основная функция
             menu_1()
 
         def vis2():
-            global vis2_t
+            global vis2_t,ght1
             vis2_t = True
-
+            ght1 = []
             def vis2_track_time():
                 if vis2_t:
                     data['vis2_time'] += 1
@@ -2328,6 +2328,10 @@ def menu_1():   #основная функция
                 df()
 
                 def check(letter):
+                    global ght1
+                    if letter in ght1:
+                        return
+                    ght1.append(letter)
                     data['vis2_try'] += 1
                     sound_keyboard.play()
                     global count
@@ -2488,8 +2492,10 @@ def menu_1():   #основная функция
                     dsa.destroy()
                     y.destroy()
                     n.destroy()
+                    dd.configure(command=slo)
                     for i in "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЬЫЪЭЮЧШЩЯ":
                         globals()[i].configure(state="normal")
+                dd.configure(command="")
                 dsa = tk.Label(vi,bg=bagr,text=f"ЗАГАДАТЬ СЛОВО: '{word}'?",font=("Arial", 50, "bold"))
                 y = tk.Button(vi,text="ДА",font=("Arial", 50, "bold"),bg=green,relief="flat",padx=22,activebackground=green,command = yy)
                 n = tk.Button(vi,text="НЕТ",font=("Arial", 50, "bold"),bg=red, command = d,relief="flat",activebackground=red)
@@ -2499,6 +2505,7 @@ def menu_1():   #основная функция
                 for i in "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЬЫЪЭЮЧШЩЯ":
                     globals()[i].configure(state="disabled")
             def wrd(x):
+                global ght1
                 sound_keyboard.play()
                 global word,fi,te,coun,gh,er,fgh,dd,fd
                 if x != "del":
