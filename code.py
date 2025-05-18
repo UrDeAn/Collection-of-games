@@ -3285,15 +3285,12 @@ def menu_1():   #основная функция
         sound_ach.set_volume(0.2 * n)
         sound_mem1.set_volume(1 * n)
         sound_lose.set_volume(0.35 * n)
-
-
     def on(n="f"):
         global volume,xx
         volume_scale.set(xx)
         data['music'] = 'True'
         music.configure(image=image1, command=off)
         volume = True
-
     def off():
         global volume
         volume_scale.set(0)
@@ -3331,10 +3328,6 @@ def menu_1():   #основная функция
         on()
     else: off()
     menu.pack()
-
-
-
-
 
 menu_1()
 window.mainloop()
